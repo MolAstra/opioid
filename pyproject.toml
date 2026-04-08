@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opioid"
+version = "0.1.0"
+description = "µORScreen: A Lightweight Consensus Modeling Framework for µ-opioid Receptor Ligand Prediction and Virtual Screening"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chemprop>=2.2",
+    "gradio>=5.0",
+    "ipykernel",
+    "joblib>=1.4",
+    "lightgbm>=4.5",
+    "litdata",
+    "loguru",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "rdkit",
+    "scikit-learn>=1.5",
+    "shap>=0.46",
+    "tabpfn>=2.0",
+    "xgboost>=2.1",
+]
+authors = [{ name = "Silong Zhai" }]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pre-commit>=3.8",
+    "chemprop",
+    "scikit-learn>=1.5",
+    "shap>=0.46",
+    "xgboost>=2.1",
+    "lightgbm>=4.5",
+    "tabpfn>=2.0",
+    "litserve>=0.2",
+    "umap-learn>=0.5",
+    "molvs",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["opioid*"]
