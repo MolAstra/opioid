@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "µORScreen: A Lightweight Consensus Modeling Framework for µ-opioid Receptor Ligand Prediction and Virtual Screening"
 readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = [
     "chemprop>=2.2",
     "gradio>=5.0",
@@ -26,6 +27,10 @@ dependencies = [
     "xgboost>=2.1",
 ]
 authors = [{ name = "Silong Zhai" }]
+
+[project.urls]
+Homepage = "https://github.com/MolAstra/opioid"
+Repository = "https://github.com/MolAstra/opioid"
 
 [project.optional-dependencies]
 dev = [
