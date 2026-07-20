@@ -25,3 +25,5 @@ gradio_cached_examples/
 *.log
 *.tmp
 *.swp
+
+vendors

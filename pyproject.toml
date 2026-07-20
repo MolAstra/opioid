@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "opioid"
-version = "0.1.0"
+version = "0.2.0"
 description = "µORScreen: A Lightweight Consensus Modeling Framework for µ-opioid Receptor Ligand Prediction and Virtual Screening"
 readme = "README.md"
 requires-python = ">=3.12"

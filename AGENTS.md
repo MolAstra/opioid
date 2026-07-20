@@ -176,8 +176,8 @@ Prefer reading these files before changing workflow behavior.
 
 ## Git and Release State
 
-- Package version: `0.1.0`
-- Git tag: `v0.1.0`
+- Package version: `0.2.0`
+- Git tag: `v0.2.0`
 - Repository: `git@github.com:MolAstra/opioid.git`
 - License: MIT
 
