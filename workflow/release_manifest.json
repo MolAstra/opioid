@@ -1,0 +1,41 @@
+{
+  "checksum_file": "workflow/release_checksums.sha256",
+  "checksum_file_sha256": "45a9c604cad242bcfec5e0a79e2d6a1a10449ba50ef3fcb7531c7d3cf3b52249",
+  "created_at": "2026-07-25T05:14:22.495733+00:00",
+  "excluded_names": [
+    "status.json"
+  ],
+  "excluded_path_parts": [
+    "__pycache__",
+    "_logs",
+    "artifacts"
+  ],
+  "excluded_suffixes": [
+    ".ckpt",
+    ".joblib",
+    ".log",
+    ".pt",
+    ".pyc"
+  ],
+  "file_count": 1488,
+  "model_artifacts_published": false,
+  "published_roots": [
+    "workflow/10_build_data/data",
+    "workflow/20_audit_splits/results",
+    "workflow/30_benchmark_models/results",
+    "workflow/40_report_results/results",
+    "workflow/50_explain_rf/results",
+    "workflow/60_virtual_screen/data",
+    "workflow/60_virtual_screen/results",
+    "workflow/70_external_validation/data",
+    "workflow/70_external_validation/results"
+  ],
+  "purpose": "published_data_and_non_model_result_evidence",
+  "regeneration": {
+    "workflow_50": "./workflow/50_explain_rf/run.sh all --replace",
+    "workflow_60": "./workflow/60_virtual_screen/run.sh all --replace --batch-size 8192"
+  },
+  "release": "0.3.0",
+  "schema_version": 1,
+  "total_bytes": 155502251
+}

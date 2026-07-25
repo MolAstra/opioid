@@ -1,0 +1,5 @@
+source,n_source_rows,n_invalid_smiles,n_training_overlap_rows,n_within_source_duplicate_rows,n_unique_eligible,n_feature_errors,n_screened,n_consensus_antagonistic,consensus_antagonistic_rate,n_consensus_non_antagonistic,consensus_non_antagonistic_rate
+gpcrdb,12090,0,778,0,11312,0,11312,674,0.059582743988684586,9339,0.8255834512022631
+zinc,14556,0,24,7491,7041,0,7041,9,0.0012782275244993609,6371,0.9048430620650476
+reinvent,90000,433,743,30768,58056,0,58056,174,0.002997106242248863,56882,0.9797781452390795
+ouroboros,19611,1,48,0,19562,0,19562,28,0.0014313464880891524,18466,0.9439730088947961

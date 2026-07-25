@@ -1,0 +1,19 @@
+{
+  "canonical_global_evidence": "../dpnet_analysis/report.json",
+  "fingerprint": {
+    "n_bits": 1024,
+    "radius": 2,
+    "type": "Morgan"
+  },
+  "interpretation": "Supplemental per-fold evidence only. DPNet report.json is the canonical source for development/test distributions, scaffold evidence, and DataSAIL leakage.",
+  "kind": "muorscreen.cv_fold_similarity_supplement",
+  "max_cross_pair_tanimoto": 1.0,
+  "n_folds": 5,
+  "n_train_valid_cross_pairs": 625164,
+  "n_validation_molecule_evaluations": 884,
+  "protocol": "scaffold",
+  "report_threshold": 0.7,
+  "schema_version": 1,
+  "scope": "train_validation_folds_only",
+  "split_dir": "/home/silong/codex/opioid/workflow/10_build_data/data/dpbench/task_pool/muor_antagonism/processed_scaffold"
+}

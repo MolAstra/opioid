@@ -1,0 +1,23 @@
+# Exact scientific/runtime versions used for the v0.3.0 published evidence.
+# Install the CUDA-matched PyTorch build separately as documented in docs/reproducibility.md.
+chemprop==2.2.3
+descriptastorus==2.8.0
+fastapi==0.135.2
+httpx==0.28.1
+joblib==1.5.3
+lightgbm==4.6.0
+litserve==0.2.17
+matplotlib==3.10.8
+numpy==2.4.3
+pandas==3.0.2
+pillow==12.1.1
+pydantic==2.12.5
+pytest==9.0.2
+rdkit==2025.9.6
+ruff==0.15.8
+scikit-learn==1.8.0
+shap==0.51.0
+tabpfn==7.0.1
+tabulate==0.10.0
+uvicorn==0.42.0
+xgboost==3.2.0

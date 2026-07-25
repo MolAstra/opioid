@@ -1,0 +1,92 @@
+{
+  "created_at": "2026-07-25T05:14:04.394264+00:00",
+  "ensemble": {
+    "inference_batch_rows": 20,
+    "models": [
+      "rf__ecfp_2048",
+      "tabpfn__ecfp_2048",
+      "lgbm__ecfp_1024_rdkit2d_normalized_200"
+    ],
+    "scores_calibrated": false,
+    "selection_scope": "test_informed_screening_ensemble",
+    "strict_consensus_rule": "all three antagonistic scores >= 0.5"
+  },
+  "git": {
+    "dirty": true,
+    "sha": "087ca5bc7caafe17280750e77421b33723f5bfb0"
+  },
+  "independent_evaluation": false,
+  "interpretation": "Small purposively balanced literature case set; three exact training overlaps; not a representative prospective prevalence sample.",
+  "label_contract": {
+    "0": "non-antagonistic",
+    "1": "antagonistic"
+  },
+  "metric_policy": {
+    "auprc_reported": false,
+    "auroc_reported": false,
+    "confusion_counts": true,
+    "reported_metrics": [
+      "accuracy",
+      "balanced_accuracy"
+    ]
+  },
+  "overlap_audit": {
+    "key": "stereochemistry-preserving RDKit canonical SMILES",
+    "nonoverlap_count": 17,
+    "overlap_count": 3,
+    "overlap_ids": [
+      "EXT-N05",
+      "EXT-N08",
+      "EXT-N10"
+    ],
+    "training_rows": 982
+  },
+  "purpose": "exploratory_literature_case_evaluation",
+  "runtime": {
+    "cuda": {
+      "available": true,
+      "device_name": "NVIDIA H100 80GB HBM3",
+      "visible_devices": "5"
+    },
+    "packages": {
+      "joblib": "1.5.3",
+      "numpy": "2.4.3",
+      "pandas": "3.0.2",
+      "rdkit": "2025.9.6",
+      "scikit-learn": "1.8.0",
+      "tabpfn": "7.0.1",
+      "torch": "2.7.1+cu126"
+    },
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "schema_version": 1,
+  "source": {
+    "class_counts": {
+      "0": 10,
+      "1": 10
+    },
+    "path": "workflow/70_external_validation/data/external_mor_20.csv",
+    "rows": 20,
+    "sha256": "9a8ff5adf2ebd0ffa686ffbd1c4e3dde194f24959cecd849562ce06e6f2cf702"
+  },
+  "training_input_sha256": {
+    "processed_datasail/manifest.json": "443b98148617a5e70b9293433f75f75d4908624c60fa3dab586f4147937dc8d7",
+    "processed_datasail/test.csv": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a",
+    "processed_datasail/train_fold-0.csv": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1",
+    "processed_datasail/valid_fold-0.csv": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843",
+    "processed_random/manifest.json": "e7813f050d4d44e87473480e41b948a2fcc6ed01ad0c40f6b9e663516068161e",
+    "processed_random/test.csv": "07dfafd6b24f1d3ea112da353748c953f98b820d430842d4c9880f0c25ef25fb",
+    "processed_random/train_fold-0.csv": "1d3822b25531809b55ca053dd97c65ef6d2b62b46d55779fe5937aeb24af4755",
+    "processed_random/valid_fold-0.csv": "5312fc1868b7c317f2351d78050e1271d647ed813899a76dc22f6692ec61a26e",
+    "processed_scaffold/manifest.json": "a2de65184357a6b28962afb6e974006810852911ba8568ffbc245e038f71be34",
+    "processed_scaffold/test.csv": "d9fa95207f58ebaa3c5fdfb8f7222a634aedb0228271247fb40f31f592de60f2",
+    "processed_scaffold/train_fold-0.csv": "485011561d0b6d5af1f254796c4a18d75f37ec39157c8f8689900c464edf57e0",
+    "processed_scaffold/valid_fold-0.csv": "1d74a91934b7d79244241b467433e88ea9f8efa6be6230eeaf71c8f1400fb49f"
+  },
+  "upstream_sha256": {
+    "workflow_50_model_manifest": "d37bd538dce0056daf4c724cfbb5232713d0968ad7e067e8ed79e980a32385aa",
+    "workflow_60_model_manifest": "a8a9aaf850e102d0006ec822f4fd45fa2753d55809f089eefa318a487b8febca",
+    "workflow_60_run_manifest": "ab26da635a6fd6c9430e3c5bfbba596aac8c2916306edd80957c7b8d3b7c1334"
+  }
+}

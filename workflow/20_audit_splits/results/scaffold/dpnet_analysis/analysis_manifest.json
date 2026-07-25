@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "path": "label_distribution.csv",
+      "sha256": "46dec605d7f675d41383e8ba90734f846dcbf2f7815f1637544abd185f276e99"
+    },
+    {
+      "path": "molecular_weight_histogram.csv",
+      "sha256": "1cb8f75eee361d4f56b2f1f4f19cf9ddbe21b5c8e737480418edcc5230a46ef4"
+    },
+    {
+      "path": "pairwise_similarity.csv",
+      "sha256": "fad52bb6818f7513fd6ec9325150faadf4457d54d9298721419e23c08c594fd4"
+    },
+    {
+      "path": "report.html",
+      "sha256": "34ebad3ae3c3506cebd882d438b5f119541dd228bb7b4a17dc56065b605e0a83"
+    },
+    {
+      "path": "report.json",
+      "sha256": "5236dfa3deebb4d40aaf111df9e7cc599790a1b8882acbe247746738e244098c"
+    },
+    {
+      "path": "similarity_histogram.csv",
+      "sha256": "613fd81febf5b1c0b9ede248f55a310ba5e88f112939fd05a48e50417d198ba7"
+    },
+    {
+      "path": "split_statistics.csv",
+      "sha256": "c0898e20871b3cc0cb4fb1341e9476e37283780d35277d90344562d182519664"
+    }
+  ],
+  "kind": "dpnet.split_analysis_manifest",
+  "report": {
+    "path": "report.json",
+    "sha256": "5236dfa3deebb4d40aaf111df9e7cc599790a1b8882acbe247746738e244098c"
+  },
+  "schema_version": 2,
+  "source_name": "processed_scaffold",
+  "task_id": "muor_antagonism"
+}

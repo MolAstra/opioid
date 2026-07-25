@@ -1,0 +1,270 @@
+{
+  "assignments": {
+    "path": "processed_scaffold/assignments.csv",
+    "sha256": "02f9a1d4c2e8521c321cfdc7c340ec6bd4d9582cc477e25dbb61afc626b72a40"
+  },
+  "columns": [
+    {
+      "logical_type": "string",
+      "name": "sample_id",
+      "nullable": false
+    },
+    {
+      "logical_type": "string",
+      "name": "smiles",
+      "nullable": false
+    },
+    {
+      "logical_type": "string",
+      "name": "scaffold",
+      "nullable": false
+    },
+    {
+      "logical_type": "int64",
+      "name": "label",
+      "nullable": true
+    }
+  ],
+  "deduplication": {
+    "columns": [
+      "smiles"
+    ],
+    "duplicate_rows": 1,
+    "invalid_smiles_rows": 0,
+    "processed_rows": 982
+  },
+  "diagnostics": {
+    "path": "processed_scaffold/diagnostics.json",
+    "sha256": "e047c81ff40ec261eedc56b2bde48ea2c3e49b0b0d60856442ba89b9fbfd85a7"
+  },
+  "folds": [
+    {
+      "fold_id": 0,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 543,
+            "1": 164
+          }
+        },
+        "observations": 707,
+        "path": "processed_scaffold/train_fold-0.csv",
+        "rows": 707,
+        "sha256": "485011561d0b6d5af1f254796c4a18d75f37ec39157c8f8689900c464edf57e0"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 136,
+            "1": 41
+          }
+        },
+        "observations": 177,
+        "path": "processed_scaffold/valid_fold-0.csv",
+        "rows": 177,
+        "sha256": "1d74a91934b7d79244241b467433e88ea9f8efa6be6230eeaf71c8f1400fb49f"
+      }
+    },
+    {
+      "fold_id": 1,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 543,
+            "1": 164
+          }
+        },
+        "observations": 707,
+        "path": "processed_scaffold/train_fold-1.csv",
+        "rows": 707,
+        "sha256": "41f56796fd99fe2352a9e78db8dc0fd2e61849bc185d81c7b50528bcda5568fc"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 136,
+            "1": 41
+          }
+        },
+        "observations": 177,
+        "path": "processed_scaffold/valid_fold-1.csv",
+        "rows": 177,
+        "sha256": "c45ed6266004259a0aa0abce5cb7d888dca602cd9cb86202767a191e0260f404"
+      }
+    },
+    {
+      "fold_id": 2,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 543,
+            "1": 164
+          }
+        },
+        "observations": 707,
+        "path": "processed_scaffold/train_fold-2.csv",
+        "rows": 707,
+        "sha256": "4cbf75a8f6b8dccbff1ebbbc16c174666fd2d3c6b25bddb8600e650f0d8e76c7"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 136,
+            "1": 41
+          }
+        },
+        "observations": 177,
+        "path": "processed_scaffold/valid_fold-2.csv",
+        "rows": 177,
+        "sha256": "ed969b26fd7a31080b8f452f4cae4c0a67f5da0d8aa830e57d5992210d1314d9"
+      }
+    },
+    {
+      "fold_id": 3,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 544,
+            "1": 164
+          }
+        },
+        "observations": 708,
+        "path": "processed_scaffold/train_fold-3.csv",
+        "rows": 708,
+        "sha256": "72872c2a6a237a33e98411907883fd029ac16ea4461570aef261b476f7c7f5e9"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 135,
+            "1": 41
+          }
+        },
+        "observations": 176,
+        "path": "processed_scaffold/valid_fold-3.csv",
+        "rows": 176,
+        "sha256": "0e4ef7c214ea3fabede69e6698a1a3268d7c0b622b62ede8570f74c71c7125fd"
+      }
+    },
+    {
+      "fold_id": 4,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 543,
+            "1": 164
+          }
+        },
+        "observations": 707,
+        "path": "processed_scaffold/train_fold-4.csv",
+        "rows": 707,
+        "sha256": "5615c629c99e4fddbf7ad5e7de26f62f0e386e682f399a65cc53e487843bb8f0"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 136,
+            "1": 41
+          }
+        },
+        "observations": 177,
+        "path": "processed_scaffold/valid_fold-4.csv",
+        "rows": 177,
+        "sha256": "24264ecb62bcb0c1d579c97de5a95c6577c2cc333832f813ccb0b538b6c7323f"
+      }
+    }
+  ],
+  "kind": "dpnet.local_partition",
+  "processed_dir": "processed_scaffold",
+  "processor": {
+    "normalization_protocol": "rdkit-cleanup-fragment-parent-uncharger-v1",
+    "package_version": "0.13.0",
+    "rdkit_version": "2025.09.3"
+  },
+  "protocol": {
+    "datasail": null,
+    "fold_count": 5,
+    "layout": "cv",
+    "method": "scaffold",
+    "seed": 2026,
+    "stratification": {
+      "features": [
+        {
+          "categories": [
+            "0"
+          ],
+          "kind": "classification",
+          "name": "label:label:0",
+          "source": "label"
+        },
+        {
+          "categories": [
+            "1"
+          ],
+          "kind": "classification",
+          "name": "label:label:1",
+          "source": "label"
+        }
+      ],
+      "split_counts": {
+        "fold_0": {
+          "label:label:0": 136,
+          "label:label:1": 41
+        },
+        "fold_1": {
+          "label:label:0": 136,
+          "label:label:1": 41
+        },
+        "fold_2": {
+          "label:label:0": 136,
+          "label:label:1": 41
+        },
+        "fold_3": {
+          "label:label:0": 135,
+          "label:label:1": 41
+        },
+        "fold_4": {
+          "label:label:0": 136,
+          "label:label:1": 41
+        },
+        "test": {
+          "label:label:0": 75,
+          "label:label:1": 23
+        }
+      },
+      "target_fractions": {
+        "fold_0": 0.18,
+        "fold_1": 0.18,
+        "fold_2": 0.18,
+        "fold_3": 0.18,
+        "fold_4": 0.18,
+        "test": 0.1
+      },
+      "warnings": []
+    },
+    "test_fraction": 0.1,
+    "valid_fraction": null
+  },
+  "raw": {
+    "path": "task_pool/muor_antagonism/raw/muor_antagonism.csv",
+    "rows": 983,
+    "sha256": "5e2d53c299cf9d085f2f2f4cac42bb751eb1e0396926a0b978c10c5e1465666c"
+  },
+  "schema_version": 1,
+  "splits": null,
+  "task_id": "muor_antagonism",
+  "task_meta_sha256": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6",
+  "test": {
+    "class_counts": {
+      "label": {
+        "0": 75,
+        "1": 23
+      }
+    },
+    "observations": 98,
+    "path": "processed_scaffold/test.csv",
+    "rows": 98,
+    "sha256": "d9fa95207f58ebaa3c5fdfb8f7222a634aedb0228271247fb40f31f592de60f2"
+  },
+  "warnings": []
+}

@@ -1,0 +1,58 @@
+{
+  "datasail": null,
+  "stratification": {
+    "features": [
+      {
+        "categories": [
+          "0"
+        ],
+        "kind": "classification",
+        "name": "label:label:0",
+        "source": "label"
+      },
+      {
+        "categories": [
+          "1"
+        ],
+        "kind": "classification",
+        "name": "label:label:1",
+        "source": "label"
+      }
+    ],
+    "split_counts": {
+      "fold_0": {
+        "label:label:0": 136,
+        "label:label:1": 41
+      },
+      "fold_1": {
+        "label:label:0": 136,
+        "label:label:1": 41
+      },
+      "fold_2": {
+        "label:label:0": 136,
+        "label:label:1": 41
+      },
+      "fold_3": {
+        "label:label:0": 135,
+        "label:label:1": 41
+      },
+      "fold_4": {
+        "label:label:0": 136,
+        "label:label:1": 41
+      },
+      "test": {
+        "label:label:0": 75,
+        "label:label:1": 23
+      }
+    },
+    "target_fractions": {
+      "fold_0": 0.18,
+      "fold_1": 0.18,
+      "fold_2": 0.18,
+      "fold_3": 0.18,
+      "fold_4": 0.18,
+      "test": 0.1
+    },
+    "warnings": []
+  }
+}

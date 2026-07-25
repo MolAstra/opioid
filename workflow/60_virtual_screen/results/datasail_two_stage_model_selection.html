@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataSAIL two-stage model selection</title>
+  <style>
+    :root { color: #17232b; background: #f5f2eb; font-family: Arial, sans-serif; }
+    body { margin: 0; padding: 32px; }
+    main { max-width: 1220px; margin: auto; padding: 28px; background: white;
+            border: 1px solid #d8d3c8; }
+    h1 { margin: 0 0 8px; font-size: 25px; font-weight: 500; }
+    .subtitle, .note { color: #5f6e77; line-height: 1.5; }
+    .table-wrap { margin: 22px 0 16px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { padding: 11px 10px; background: #274f61; color: white; text-align: left;
+          white-space: nowrap; font-weight: 600; }
+    td { padding: 10px; border-bottom: 1px solid #dedbd4; vertical-align: top; }
+    tbody tr:nth-child(-n+3) { background: #e9f4ed; }
+    tbody tr:nth-child(-n+3) td:first-child { color: #26633e; font-weight: 700; }
+    td:nth-child(1), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+      white-space: nowrap;
+    }
+    code { font-size: 12px; }
+    .note { margin: 0; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>DataSAIL two-stage model selection</h1>
+  <p class="subtitle">Within each of eight model families, validation mean AUROC fixes one
+  representation/preset. Shared-test mean AUROC then ranks those frozen family representatives
+  and identifies the three-model screening ensemble.</p>
+  <div class="table-wrap"><table class="dataframe selection-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Rank</th>
+      <th>Model family</th>
+      <th>Validation-best representation</th>
+      <th>Candidate ID</th>
+      <th>Validation AUROC</th>
+      <th>Shared-test AUROC</th>
+      <th>Screening ensemble</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>LightGBM</td>
+      <td>ECFP4 (1024-bit) + RDKit2D (200-d)</td>
+      <td>lgbm__ecfp_1024_rdkit2d_normalized_200</td>
+      <td>0.725 ± 0.099</td>
+      <td>0.714 ± 0.039</td>
+      <td>Top 3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>TabPFN</td>
+      <td>ECFP4 (2048-bit)</td>
+      <td>tabpfn__ecfp_2048</td>
+      <td>0.795 ± 0.051</td>
+      <td>0.705 ± 0.093</td>
+      <td>Top 3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>RF</td>
+      <td>ECFP4 (2048-bit)</td>
+      <td>rf__ecfp_2048</td>
+      <td>0.803 ± 0.050</td>
+      <td>0.696 ± 0.068</td>
+      <td>Top 3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>XGB</td>
+      <td>ECFP4 (1024-bit) + RDKit2D (200-d)</td>
+      <td>xgb__ecfp_1024_rdkit2d_normalized_200</td>
+      <td>0.750 ± 0.079</td>
+      <td>0.693 ± 0.039</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Chemprop</td>
+      <td>Graph + Morgan</td>
+      <td>chemprop_morgan</td>
+      <td>0.723 ± 0.103</td>
+      <td>0.663 ± 0.078</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>KNN</td>
+      <td>ECFP4 (1024-bit)</td>
+      <td>knn_k5__ecfp_1024</td>
+      <td>0.722 ± 0.087</td>
+      <td>0.489 ± 0.038</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>SVM</td>
+      <td>ECFP4 (2048-bit)</td>
+      <td>svm__ecfp_2048</td>
+      <td>0.791 ± 0.064</td>
+      <td>0.487 ± 0.078</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>LR</td>
+      <td>ECFP4 (2048-bit)</td>
+      <td>logreg_l1_c0_1__ecfp_2048</td>
+      <td>0.746 ± 0.061</td>
+      <td>0.454 ± 0.128</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table></div>
+  <p class="note"><strong>Values are mean ± sample SD across five folds.</strong>
+  The highlighted Top 3 are LightGBM, TabPFN, and Random Forest. Because shared-test AUROC is
+  used for family selection, the final ensemble is test-informed and these test results are not
+  independent validation of that ensemble.</p>
+</main>
+</body>
+</html>

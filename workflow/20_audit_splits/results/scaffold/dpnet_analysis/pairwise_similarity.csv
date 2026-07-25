@@ -1,0 +1,2 @@
+left_group,right_group,pair_count,mean,std,min,max,left_nearest_mean,right_nearest_mean
+development,test,86632,0.1704495585664749,0.086249368935482518,0.015384615384615385,1,0.49869459861427562,0.68884024293961432

@@ -1,0 +1,295 @@
+{
+  "batch_size": 8192,
+  "cleaning": {
+    "canonicalization": "RDKit canonical isomeric SMILES",
+    "cross_source_prediction_deduplication_key": "canonical_smiles",
+    "salt_or_charge_standardization": false,
+    "training_overlap_key": "canonical_smiles",
+    "within_source_deduplication_key": "canonical_smiles"
+  },
+  "consensus_rule": "all three model scores >= 0.5",
+  "counts": {
+    "by_source": [
+      {
+        "consensus_antagonistic_rate": 0.059582743988684586,
+        "consensus_non_antagonistic_rate": 0.8255834512022631,
+        "n_consensus_antagonistic": 674,
+        "n_consensus_non_antagonistic": 9339,
+        "n_feature_errors": 0,
+        "n_invalid_smiles": 0,
+        "n_screened": 11312,
+        "n_source_rows": 12090,
+        "n_training_overlap_rows": 778,
+        "n_unique_eligible": 11312,
+        "n_within_source_duplicate_rows": 0,
+        "source": "gpcrdb"
+      },
+      {
+        "consensus_antagonistic_rate": 0.0012782275244993609,
+        "consensus_non_antagonistic_rate": 0.9048430620650476,
+        "n_consensus_antagonistic": 9,
+        "n_consensus_non_antagonistic": 6371,
+        "n_feature_errors": 0,
+        "n_invalid_smiles": 0,
+        "n_screened": 7041,
+        "n_source_rows": 14556,
+        "n_training_overlap_rows": 24,
+        "n_unique_eligible": 7041,
+        "n_within_source_duplicate_rows": 7491,
+        "source": "zinc"
+      },
+      {
+        "consensus_antagonistic_rate": 0.002997106242248863,
+        "consensus_non_antagonistic_rate": 0.9797781452390795,
+        "n_consensus_antagonistic": 174,
+        "n_consensus_non_antagonistic": 56882,
+        "n_feature_errors": 0,
+        "n_invalid_smiles": 433,
+        "n_screened": 58056,
+        "n_source_rows": 90000,
+        "n_training_overlap_rows": 743,
+        "n_unique_eligible": 58056,
+        "n_within_source_duplicate_rows": 30768,
+        "source": "reinvent"
+      },
+      {
+        "consensus_antagonistic_rate": 0.0014313464880891524,
+        "consensus_non_antagonistic_rate": 0.9439730088947961,
+        "n_consensus_antagonistic": 28,
+        "n_consensus_non_antagonistic": 18466,
+        "n_feature_errors": 0,
+        "n_invalid_smiles": 1,
+        "n_screened": 19562,
+        "n_source_rows": 19611,
+        "n_training_overlap_rows": 48,
+        "n_unique_eligible": 19562,
+        "n_within_source_duplicate_rows": 0,
+        "source": "ouroboros"
+      }
+    ],
+    "global_consensus_antagonistic": 870,
+    "global_screened": 95868
+  },
+  "created_at": "2026-07-25T05:07:42.642917+00:00",
+  "independent_evaluation": false,
+  "label_contract": {
+    "0": "non-antagonistic",
+    "1": "antagonistic"
+  },
+  "models": {
+    "lgbm__ecfp_1024_rdkit2d_normalized_200": {
+      "artifact": "models/lgbm__ecfp_1024_rdkit2d_normalized_200.joblib",
+      "label_column": "lightgbm_pred_label",
+      "model_name": "LightGBM",
+      "model_type": "ECFP4 (1024-bit) + RDKit2D (200-d)",
+      "score_column": "lightgbm_antagonistic_score"
+    },
+    "rf__ecfp_2048": {
+      "artifact": "workflow/50_explain_rf/results/model/rf__ecfp_2048.joblib",
+      "label_column": "rf_pred_label",
+      "model_name": "Random Forest",
+      "model_type": "ECFP4 (2048-bit)",
+      "score_column": "rf_antagonistic_score"
+    },
+    "tabpfn__ecfp_2048": {
+      "artifact": "models/tabpfn__ecfp_2048.joblib",
+      "label_column": "tabpfn_pred_label",
+      "model_name": "TabPFN",
+      "model_type": "ECFP4 (2048-bit)",
+      "score_column": "tabpfn_antagonistic_score"
+    }
+  },
+  "purpose": "full_corpus_consensus_virtual_screen",
+  "rf_upstream_artifact_sha256": "93af0609f591bd9dacbfa341ad05cf86aa9a185a16291c3a9c81dc2c9629cf78",
+  "runtime": {
+    "cuda": {
+      "available": true,
+      "device_count": 1,
+      "device_name": "NVIDIA H100 80GB HBM3",
+      "visible_devices": "5"
+    },
+    "packages": {
+      "descriptastorus": "2.8.0",
+      "lightgbm": "4.6.0",
+      "numpy": "2.4.3",
+      "pandas": "3.0.2",
+      "rdkit": "2025.9.6",
+      "scikit-learn": "1.8.0",
+      "tabpfn": "7.0.1",
+      "torch": "2.7.1+cu126"
+    },
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "schema_version": 3,
+  "scores_calibrated": false,
+  "selection_evidence": {
+    "family_selection": "maximize valid_roc_mean; candidate_id ascending tie-break",
+    "model_families": [
+      "LightGBM",
+      "TabPFN",
+      "RF",
+      "XGB",
+      "Chemprop",
+      "KNN",
+      "SVM",
+      "LR"
+    ],
+    "model_selection": "rank validation-selected families by test_roc_mean; top 3",
+    "protocol": "datasail",
+    "rows": [
+      {
+        "candidate_id": "lgbm__ecfp_1024_rdkit2d_normalized_200",
+        "model_family": "LightGBM",
+        "model_name": "LightGBM",
+        "model_type": "ECFP4 (1024-bit) + RDKit2D (200-d)",
+        "selected_for_screening": true,
+        "test_prc_mean": 0.4653382512661222,
+        "test_roc_mean": 0.7140151515151515,
+        "test_roc_rank": 1,
+        "test_roc_std": 0.0394709571523752,
+        "valid_roc_mean": 0.7252326416509878,
+        "valid_roc_std": 0.0993388700224438
+      },
+      {
+        "candidate_id": "tabpfn__ecfp_2048",
+        "model_family": "TabPFN",
+        "model_name": "TabPFN",
+        "model_type": "ECFP4 (2048-bit)",
+        "selected_for_screening": true,
+        "test_prc_mean": 0.4714395430664478,
+        "test_roc_mean": 0.7053661616161617,
+        "test_roc_rank": 2,
+        "test_roc_std": 0.0933088496571705,
+        "valid_roc_mean": 0.7953279772885816,
+        "valid_roc_std": 0.0513685328586153
+      },
+      {
+        "candidate_id": "rf__ecfp_2048",
+        "model_family": "RF",
+        "model_name": "Random Forest",
+        "model_type": "ECFP4 (2048-bit)",
+        "selected_for_screening": true,
+        "test_prc_mean": 0.4191827309006637,
+        "test_roc_mean": 0.6958964646464647,
+        "test_roc_rank": 3,
+        "test_roc_std": 0.0681283109348951,
+        "valid_roc_mean": 0.8025535686010988,
+        "valid_roc_std": 0.0503722893542062
+      },
+      {
+        "candidate_id": "xgb__ecfp_1024_rdkit2d_normalized_200",
+        "model_family": "XGB",
+        "model_name": "XGBoost",
+        "model_type": "ECFP4 (1024-bit) + RDKit2D (200-d)",
+        "selected_for_screening": false,
+        "test_prc_mean": 0.4552101193928441,
+        "test_roc_mean": 0.6933080808080808,
+        "test_roc_rank": 4,
+        "test_roc_std": 0.0386041656290868,
+        "valid_roc_mean": 0.750255413789998,
+        "valid_roc_std": 0.0789561197140246
+      },
+      {
+        "candidate_id": "chemprop_morgan",
+        "model_family": "Chemprop",
+        "model_name": "Chemprop",
+        "model_type": "Graph + Morgan",
+        "selected_for_screening": false,
+        "test_prc_mean": 0.4315365357155803,
+        "test_roc_mean": 0.6632575757575758,
+        "test_roc_rank": 5,
+        "test_roc_std": 0.0784666605779998,
+        "valid_roc_mean": 0.7225588181026643,
+        "valid_roc_std": 0.1032228748307454
+      },
+      {
+        "candidate_id": "knn_k5__ecfp_1024",
+        "model_family": "KNN",
+        "model_name": "k-Nearest Neighbors (k=5)",
+        "model_type": "ECFP4 (1024-bit)",
+        "selected_for_screening": false,
+        "test_prc_mean": 0.2850484544476324,
+        "test_roc_mean": 0.488510101010101,
+        "test_roc_rank": 6,
+        "test_roc_std": 0.0375476105359379,
+        "valid_roc_mean": 0.7219034065276908,
+        "valid_roc_std": 0.0872833423663606
+      },
+      {
+        "candidate_id": "svm__ecfp_2048",
+        "model_family": "SVM",
+        "model_name": "SVM (RBF)",
+        "model_type": "ECFP4 (2048-bit)",
+        "selected_for_screening": false,
+        "test_prc_mean": 0.2822574238367914,
+        "test_roc_mean": 0.4869949494949495,
+        "test_roc_rank": 7,
+        "test_roc_std": 0.0776266179187863,
+        "valid_roc_mean": 0.7907180155692572,
+        "valid_roc_std": 0.0642906970196783
+      },
+      {
+        "candidate_id": "logreg_l1_c0_1__ecfp_2048",
+        "model_family": "LR",
+        "model_name": "Logistic Regression (L1, C=0.1)",
+        "model_type": "ECFP4 (2048-bit)",
+        "selected_for_screening": false,
+        "test_prc_mean": 0.3103902173469464,
+        "test_roc_mean": 0.4540404040404039,
+        "test_roc_rank": 8,
+        "test_roc_std": 0.1282219738419906,
+        "valid_roc_mean": 0.7461955743291523,
+        "valid_roc_std": 0.0613323495127882
+      }
+    ],
+    "scope": "test_informed_screening_ensemble",
+    "selected_candidate_ids": [
+      "lgbm__ecfp_1024_rdkit2d_normalized_200",
+      "tabpfn__ecfp_2048",
+      "rf__ecfp_2048"
+    ],
+    "source": "/home/silong/codex/opioid/workflow/40_report_results/results/all_candidates.csv",
+    "source_sha256": "761d0697cf88aafaf24d30b82e11867ab9947f47d913d0894099a6fce9dfcc18",
+    "warning": "Within each of eight model families, the candidate was selected by DataSAIL validation AUROC. The three families were then selected by shared-test AUROC, so those tests are not independent evaluation of the final screening ensemble."
+  },
+  "selection_scope": "test_informed_screening_ensemble",
+  "sources": {
+    "gpcrdb": {
+      "path": "/home/silong/codex/opioid/workflow/60_virtual_screen/data/sources/gpcrdb.csv",
+      "sha256": "8e5791eb89531e0c89416b070340d04f3a4d959fc6f2cce2313891561305fef4",
+      "smiles_column": "smiles"
+    },
+    "ouroboros": {
+      "path": "/home/silong/codex/opioid/workflow/60_virtual_screen/data/sources/opioid_ouroboros.csv",
+      "sha256": "125974184f2c4da593c131a9460bd739d41ae4c4ef6994dc19af440ef9b14280",
+      "smiles_column": "smiles"
+    },
+    "reinvent": {
+      "path": "/home/silong/codex/opioid/workflow/60_virtual_screen/data/sources/reinvent_stage2_1.csv",
+      "sha256": "309416bf6ecb60e292c3eab1c25dcd3fa340f09787bf8ffc3f38e6b22dce32c7",
+      "smiles_column": "SMILES"
+    },
+    "zinc": {
+      "path": "/home/silong/codex/opioid/workflow/60_virtual_screen/data/sources/zinc_scaffold.csv",
+      "sha256": "7d33d6073e6f326de53469a45d6085b5b25cd5c1cc13bb180f06e7878cc937e1",
+      "smiles_column": "smiles"
+    }
+  },
+  "threshold": 0.5,
+  "training_input_sha256": {
+    "processed_datasail/manifest.json": "443b98148617a5e70b9293433f75f75d4908624c60fa3dab586f4147937dc8d7",
+    "processed_datasail/test.csv": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a",
+    "processed_datasail/train_fold-0.csv": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1",
+    "processed_datasail/valid_fold-0.csv": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843",
+    "processed_random/manifest.json": "e7813f050d4d44e87473480e41b948a2fcc6ed01ad0c40f6b9e663516068161e",
+    "processed_random/test.csv": "07dfafd6b24f1d3ea112da353748c953f98b820d430842d4c9880f0c25ef25fb",
+    "processed_random/train_fold-0.csv": "1d3822b25531809b55ca053dd97c65ef6d2b62b46d55779fe5937aeb24af4755",
+    "processed_random/valid_fold-0.csv": "5312fc1868b7c317f2351d78050e1271d647ed813899a76dc22f6692ec61a26e",
+    "processed_scaffold/manifest.json": "a2de65184357a6b28962afb6e974006810852911ba8568ffbc245e038f71be34",
+    "processed_scaffold/test.csv": "d9fa95207f58ebaa3c5fdfb8f7222a634aedb0228271247fb40f31f592de60f2",
+    "processed_scaffold/train_fold-0.csv": "485011561d0b6d5af1f254796c4a18d75f37ec39157c8f8689900c464edf57e0",
+    "processed_scaffold/valid_fold-0.csv": "1d74a91934b7d79244241b467433e88ea9f8efa6be6230eeaf71c8f1400fb49f"
+  },
+  "training_scope": "all 982 deduplicated labeled molecules"
+}

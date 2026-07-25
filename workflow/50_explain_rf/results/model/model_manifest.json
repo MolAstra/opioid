@@ -1,0 +1,88 @@
+{
+  "artifact_path": "model/rf__ecfp_2048.joblib",
+  "artifact_published": false,
+  "artifact_regeneration_command": "./workflow/50_explain_rf/run.sh all --replace",
+  "artifact_sha256": "93af0609f591bd9dacbfa341ad05cf86aa9a185a16291c3a9c81dc2c9629cf78",
+  "candidate": {
+    "algorithm": {
+      "id": "rf",
+      "label": "Random forest",
+      "parameters": {
+        "n_estimators": 600
+      },
+      "scale_features": false
+    },
+    "candidate_id": "rf__ecfp_2048",
+    "family": "traditional",
+    "model_name": "Random Forest",
+    "model_type": "ECFP4 (2048-bit)",
+    "representation": {
+      "components": [
+        "ecfp_2048"
+      ],
+      "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+      "descriptor": null,
+      "descriptor_dimension": null,
+      "id": "ecfp_2048",
+      "morgan_bits": 2048,
+      "morgan_radius": 2,
+      "n_features": 2048
+    }
+  },
+  "class_counts": {
+    "0": 754,
+    "1": 228
+  },
+  "created_at": "2026-07-25T04:29:07.568345+00:00",
+  "environment": {
+    "python_packages": {
+      "joblib": "1.5.3",
+      "numpy": "2.4.3",
+      "pandas": "3.0.2",
+      "scikit-learn": "1.8.0",
+      "shap": "0.51.0"
+    },
+    "rdkit": "2025.09.6"
+  },
+  "independent_evaluation": false,
+  "input_files": {
+    "processed_datasail/manifest.json": "443b98148617a5e70b9293433f75f75d4908624c60fa3dab586f4147937dc8d7",
+    "processed_datasail/test.csv": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a",
+    "processed_datasail/train_fold-0.csv": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1",
+    "processed_datasail/valid_fold-0.csv": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843",
+    "processed_random/manifest.json": "e7813f050d4d44e87473480e41b948a2fcc6ed01ad0c40f6b9e663516068161e",
+    "processed_random/test.csv": "07dfafd6b24f1d3ea112da353748c953f98b820d430842d4c9880f0c25ef25fb",
+    "processed_random/train_fold-0.csv": "1d3822b25531809b55ca053dd97c65ef6d2b62b46d55779fe5937aeb24af4755",
+    "processed_random/valid_fold-0.csv": "5312fc1868b7c317f2351d78050e1271d647ed813899a76dc22f6692ec61a26e",
+    "processed_scaffold/manifest.json": "a2de65184357a6b28962afb6e974006810852911ba8568ffbc245e038f71be34",
+    "processed_scaffold/test.csv": "d9fa95207f58ebaa3c5fdfb8f7222a634aedb0228271247fb40f31f592de60f2",
+    "processed_scaffold/train_fold-0.csv": "485011561d0b6d5af1f254796c4a18d75f37ec39157c8f8689900c464edf57e0",
+    "processed_scaffold/valid_fold-0.csv": "1d74a91934b7d79244241b467433e88ea9f8efa6be6230eeaf71c8f1400fb49f"
+  },
+  "intended_uses": [
+    "explanation",
+    "screening"
+  ],
+  "label_contract": {
+    "0": "non-antagonistic",
+    "1": "antagonistic"
+  },
+  "performance_evidence": "workflow/30_benchmark_models and workflow/40_report_results",
+  "purpose": "full_corpus_explanation_and_screening",
+  "schema_version": 2,
+  "score_semantics": "uncalibrated class-1 random-forest score",
+  "seed": 42,
+  "selection": {
+    "candidate_id": "rf__ecfp_2048",
+    "evidence_sha256": "761d0697cf88aafaf24d30b82e11867ab9947f47d913d0894099a6fce9dfcc18",
+    "mean_validation_auroc": 0.862955401588892,
+    "rule": "highest mean validation AUROC across scaffold, random, and DataSAIL"
+  },
+  "training_rows": 982,
+  "training_scope": "full_deduplicated_labeled_corpus",
+  "tree_shap_expected_value_class_1": 0.5000000000000048,
+  "upstream": {
+    "benchmark_validation_sha256": "f75429b45589abf729d4ad8434b0d2dc00bf26ae37536ee822fd52885d09cec6",
+    "report_manifest_sha256": "eb46a9124fa04a9de13ef8742ee314b3b2c1026ec4db16d1d97331c10ee8b06e"
+  }
+}

@@ -1,6 +1,7 @@
-"""Screening and candidate-library helpers."""
+"""Workflow 60/70 screening and external-evaluation helpers.
 
-from opioid.screen.candidates import run_candidate_library
-from opioid.screen.novel_mols import run_novel_molecule_prediction
+Import the concrete workflow module directly. Keeping this package initializer free of eager
+imports avoids coupling the external-validation and web-runtime dependency graphs.
+"""
 
-__all__ = ["run_candidate_library", "run_novel_molecule_prediction"]
+__all__: list[str] = []

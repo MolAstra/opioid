@@ -1,0 +1,13 @@
+category,category_rank,sample_id,smiles,label,antagonistic_score,top_positive_bits,top_negative_bits,figure,training_member
+high_antagonistic,1,0,Cc1cc(O)cc(C)c1C[C@H](N)C(=O)N1Cc2ccccc2CC1C(=O)N[C@@H](C(=O)N[C@@H](Cc1ccccc1)C(=O)O)[C@@H](C)C1CCCCC1,1,1.0,156;628;1634;1460,1066;389;1199;1754,figures/local_cases/high_antagonistic_01.png,True
+high_antagonistic,2,58,NC(=O)c1cccc([C@H]2C[C@H]3CC[C@@H](C2)N3CCN(CC2CCOCC2)C(=O)CO)c1,1,0.9933333333333333,309;273;633;338,1145;881;1238;950,figures/local_cases/high_antagonistic_02.png,True
+high_antagonistic,3,146,CCC(CC)CN(CCCCCCN1[C@@H]2CC[C@H]1C[C@@H](c1cccc(C(N)=O)c1)C2)C(=O)CO,1,1.0,309;273;633;338,1145;881;294;1238,figures/local_cases/high_antagonistic_03.png,True
+high_antagonistic,4,145,CC(C)NC(=O)N(CCN1[C@@H]2CC[C@H]1C[C@@H](c1cccc(C(N)=O)c1)C2)CC1CCCCC1,1,0.9983333333333333,309;273;633;338,1145;881;1;1088,figures/local_cases/high_antagonistic_04.png,True
+high_non_antagonistic,1,228,Cc1cc(O)cc(C)c1C[C@H](N)[C@@H](O)C/C=C/[C@@H](O)[C@@H](Cc1ccccc1)C(=O)NCCc1ccccc1,0,0.0,33;694;650;1917,1066;1157;1754;1199,figures/local_cases/high_non_antagonistic_01.png,True
+high_non_antagonistic,2,256,COc1ccc2c(c1)[C@]13CCCC[C@@H]1[C@H](C2)N(C)CC3,0,0.0,1019;878;231;1236,1731;1145;1116;580,figures/local_cases/high_non_antagonistic_02.png,True
+high_non_antagonistic,3,266,CCC(=O)N(c1ccccc1)C1CCN(CCc2ccccc2)CC1,0,0.0,1019;80;1917;935,1145;218;881;1482,figures/local_cases/high_non_antagonistic_03.png,True
+high_non_antagonistic,4,254,CCCC[C@@H](NC(=O)[C@@H](N)Cc1ccc(O)cc1)C(=O)NCC(=O)N[C@H](Cc1c[nH]c2ccccc12)C(=O)N(C)[C@@H](CCCC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](Cc1ccccc1)C(N)=O,0,0.0,140;806;1921;364,1110;1715;966;1440,figures/local_cases/high_non_antagonistic_04.png,True
+boundary,1,241,C[C@H]1[C@H]2Cc3ccc(C(=O)NCCc4ccc(-c5ccccc5)cc4)cc3[C@]1(C)CCN2CC1CC1,0,0.5007892285667238,736;1964;896;389,580;1610;1867;1022,figures/local_cases/boundary_01.png,True
+boundary,2,123,CCC1C(=O)N(C2CCN(C(C)CC(c3ccccc3)c3ccccc3)CC2)c2ccccc21,1,0.6383333333333333,547;894;689;249,1199;294;1088;1873,figures/local_cases/boundary_02.png,True
+boundary,3,217,CCOc1ccc(C(=O)N2CCCC2)cc1CNC(=O)[C@@H](N)Cc1c(C)cc(O)cc1C,1,0.625,942;363;1385;2009,966;294;1057;1873,figures/local_cases/boundary_03.png,True
+boundary,4,188,OCC1(N2CCC(n3c(-c4ccc(F)c(Cl)c4)nc4ccccc43)CC2)CCCCC1,1,0.5586693192667371,465;1920;2;563,2046;1268;1199;1088,figures/local_cases/boundary_04.png,True

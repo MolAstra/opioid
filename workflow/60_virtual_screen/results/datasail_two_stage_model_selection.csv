@@ -1,0 +1,9 @@
+Rank,Model family,Validation-best representation,Candidate ID,Validation AUROC,Shared-test AUROC,Screening ensemble
+1,LightGBM,ECFP4 (1024-bit) + RDKit2D (200-d),lgbm__ecfp_1024_rdkit2d_normalized_200,0.725 ± 0.099,0.714 ± 0.039,Top 3
+2,TabPFN,ECFP4 (2048-bit),tabpfn__ecfp_2048,0.795 ± 0.051,0.705 ± 0.093,Top 3
+3,RF,ECFP4 (2048-bit),rf__ecfp_2048,0.803 ± 0.050,0.696 ± 0.068,Top 3
+4,XGB,ECFP4 (1024-bit) + RDKit2D (200-d),xgb__ecfp_1024_rdkit2d_normalized_200,0.750 ± 0.079,0.693 ± 0.039,—
+5,Chemprop,Graph + Morgan,chemprop_morgan,0.723 ± 0.103,0.663 ± 0.078,—
+6,KNN,ECFP4 (1024-bit),knn_k5__ecfp_1024,0.722 ± 0.087,0.489 ± 0.038,—
+7,SVM,ECFP4 (2048-bit),svm__ecfp_2048,0.791 ± 0.064,0.487 ± 0.078,—
+8,LR,ECFP4 (2048-bit),logreg_l1_c0_1__ecfp_2048,0.746 ± 0.061,0.454 ± 0.128,—

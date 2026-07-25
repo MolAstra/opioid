@@ -1,0 +1,1495 @@
+{
+  "candidate_count": 58,
+  "candidate_matrix_frozen_before_test": true,
+  "candidates": [
+    {
+      "algorithm": {
+        "id": "svm",
+        "label": "SVM (RBF)",
+        "parameters": {
+          "C": 1.0
+        },
+        "scale_features": true
+      },
+      "candidate_id": "svm__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "svm",
+        "label": "SVM (RBF)",
+        "parameters": {
+          "C": 1.0
+        },
+        "scale_features": true
+      },
+      "candidate_id": "svm__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "svm",
+        "label": "SVM (RBF)",
+        "parameters": {
+          "C": 1.0
+        },
+        "scale_features": true
+      },
+      "candidate_id": "svm__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "svm",
+        "label": "SVM (RBF)",
+        "parameters": {
+          "C": 1.0
+        },
+        "scale_features": true
+      },
+      "candidate_id": "svm__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "svm",
+        "label": "SVM (RBF)",
+        "parameters": {
+          "C": 1.0
+        },
+        "scale_features": true
+      },
+      "candidate_id": "svm__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "rf",
+        "label": "Random forest",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "rf__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "rf",
+        "label": "Random forest",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "rf__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "rf",
+        "label": "Random forest",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "rf__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "rf",
+        "label": "Random forest",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "rf__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "rf",
+        "label": "Random forest",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "rf__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "xgb",
+        "label": "XGBoost",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "xgb__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "xgb",
+        "label": "XGBoost",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "xgb__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "xgb",
+        "label": "XGBoost",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "xgb__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "xgb",
+        "label": "XGBoost",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "xgb__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "xgb",
+        "label": "XGBoost",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "xgb__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "lgbm",
+        "label": "LightGBM",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "lgbm__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "lgbm",
+        "label": "LightGBM",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "lgbm__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "lgbm",
+        "label": "LightGBM",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "lgbm__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "lgbm",
+        "label": "LightGBM",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "lgbm__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "lgbm",
+        "label": "LightGBM",
+        "parameters": {
+          "n_estimators": 600
+        },
+        "scale_features": false
+      },
+      "candidate_id": "lgbm__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "tabpfn",
+        "label": "TabPFN",
+        "parameters": {
+          "n_estimators": 8
+        },
+        "scale_features": false
+      },
+      "candidate_id": "tabpfn__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "tabpfn",
+        "label": "TabPFN",
+        "parameters": {
+          "n_estimators": 8
+        },
+        "scale_features": false
+      },
+      "candidate_id": "tabpfn__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "tabpfn",
+        "label": "TabPFN",
+        "parameters": {
+          "n_estimators": 8
+        },
+        "scale_features": false
+      },
+      "candidate_id": "tabpfn__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "tabpfn",
+        "label": "TabPFN",
+        "parameters": {
+          "n_estimators": 8
+        },
+        "scale_features": false
+      },
+      "candidate_id": "tabpfn__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "tabpfn",
+        "label": "TabPFN",
+        "parameters": {
+          "n_estimators": 8
+        },
+        "scale_features": false
+      },
+      "candidate_id": "tabpfn__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k3",
+        "label": "k-nearest neighbors (k=3)",
+        "parameters": {
+          "n_neighbors": 3,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k3__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k3",
+        "label": "k-nearest neighbors (k=3)",
+        "parameters": {
+          "n_neighbors": 3,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k3__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k3",
+        "label": "k-nearest neighbors (k=3)",
+        "parameters": {
+          "n_neighbors": 3,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k3__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k3",
+        "label": "k-nearest neighbors (k=3)",
+        "parameters": {
+          "n_neighbors": 3,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k3__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k3",
+        "label": "k-nearest neighbors (k=3)",
+        "parameters": {
+          "n_neighbors": 3,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k3__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k5",
+        "label": "k-nearest neighbors (k=5)",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k5__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k5",
+        "label": "k-nearest neighbors (k=5)",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k5__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k5",
+        "label": "k-nearest neighbors (k=5)",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k5__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k5",
+        "label": "k-nearest neighbors (k=5)",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k5__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "knn_k5",
+        "label": "k-nearest neighbors (k=5)",
+        "parameters": {
+          "n_neighbors": 5,
+          "weights": "distance"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "knn_k5__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c0_1",
+        "label": "L1 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c0_1__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c0_1",
+        "label": "L1 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c0_1__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c0_1",
+        "label": "L1 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c0_1__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c0_1",
+        "label": "L1 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c0_1__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c0_1",
+        "label": "L1 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c0_1__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c1",
+        "label": "L1 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c1__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c1",
+        "label": "L1 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c1__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c1",
+        "label": "L1 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c1__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c1",
+        "label": "L1 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c1__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l1_c1",
+        "label": "L1 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l1"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l1_c1__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c0_1",
+        "label": "L2 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c0_1__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c0_1",
+        "label": "L2 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c0_1__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c0_1",
+        "label": "L2 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c0_1__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c0_1",
+        "label": "L2 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c0_1__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c0_1",
+        "label": "L2 logistic regression (C=0.1)",
+        "parameters": {
+          "C": 0.1,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c0_1__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c1",
+        "label": "L2 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c1__ecfp_1024",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (1024 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_1024",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1024
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c1",
+        "label": "L2 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c1__ecfp_2048",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048"
+        ],
+        "description": "Morgan/ECFP radius-2 binary fingerprint (2048 bits)",
+        "descriptor": null,
+        "descriptor_dimension": null,
+        "id": "ecfp_2048",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2048
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c1",
+        "label": "L2 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c1__rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "rdkit2d_normalized_200"
+        ],
+        "description": "DescriptaStorus RDKit2DNormalized descriptors (200 values)",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "rdkit2d_normalized_200",
+        "morgan_bits": null,
+        "morgan_radius": null,
+        "n_features": 200
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c1",
+        "label": "L2 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c1__ecfp_1024_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_1024",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 1024 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_1024_rdkit2d_normalized_200",
+        "morgan_bits": 1024,
+        "morgan_radius": 2,
+        "n_features": 1224
+      }
+    },
+    {
+      "algorithm": {
+        "id": "logreg_l2_c1",
+        "label": "L2 logistic regression (C=1)",
+        "parameters": {
+          "C": 1.0,
+          "max_iter": 10000,
+          "penalty": "l2"
+        },
+        "scale_features": true
+      },
+      "candidate_id": "logreg_l2_c1__ecfp_2048_rdkit2d_normalized_200",
+      "family": "traditional",
+      "representation": {
+        "components": [
+          "ecfp_2048",
+          "rdkit2d_normalized_200"
+        ],
+        "description": "ECFP radius-2 2048 bits concatenated with 200 normalized descriptors",
+        "descriptor": "RDKit2DNormalized",
+        "descriptor_dimension": 200,
+        "id": "ecfp_2048_rdkit2d_normalized_200",
+        "morgan_bits": 2048,
+        "morgan_radius": 2,
+        "n_features": 2248
+      }
+    },
+    {
+      "algorithm": "chemprop",
+      "candidate_id": "chemprop_default",
+      "family": "chemprop",
+      "molecule_featurizers": [],
+      "preset": "default",
+      "representation": "graph",
+      "runtime": {
+        "accelerator": "gpu",
+        "cuda_visible_devices": "2",
+        "device_selection": "CUDA_VISIBLE_DEVICES controls the visible GPU",
+        "devices": "1"
+      }
+    },
+    {
+      "algorithm": "chemprop",
+      "candidate_id": "chemprop_morgan",
+      "family": "chemprop",
+      "molecule_featurizers": [
+        "morgan_binary"
+      ],
+      "preset": "morgan",
+      "representation": "morgan_binary",
+      "runtime": {
+        "accelerator": "gpu",
+        "cuda_visible_devices": "2",
+        "device_selection": "CUDA_VISIBLE_DEVICES controls the visible GPU",
+        "devices": "1"
+      }
+    },
+    {
+      "algorithm": "chemprop",
+      "candidate_id": "chemprop_morgan_rdkit2d",
+      "family": "chemprop",
+      "molecule_featurizers": [
+        "morgan_binary",
+        "v1_rdkit_2d_normalized"
+      ],
+      "preset": "morgan_rdkit2d",
+      "representation": "morgan_binary+v1_rdkit_2d_normalized",
+      "runtime": {
+        "accelerator": "gpu",
+        "cuda_visible_devices": "2",
+        "device_selection": "CUDA_VISIBLE_DEVICES controls the visible GPU",
+        "devices": "1"
+      }
+    }
+  ],
+  "chemprop_runtime": {
+    "accelerator": "gpu",
+    "cuda_visible_devices": "2",
+    "device_selection": "CUDA_VISIBLE_DEVICES controls the visible GPU",
+    "devices": "1"
+  },
+  "environment": {
+    "packages": {
+      "chemprop": "2.2.3",
+      "descriptastorus": "2.8.0",
+      "numpy": "2.4.3",
+      "pandas": "3.0.2",
+      "rdkit": "2025.9.6",
+      "scikit-learn": "1.8.0"
+    },
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "protocol": "datasail",
+  "run_stage": "matrix_test",
+  "schema_version": 2,
+  "seed": 42,
+  "split_dir": "/home/silong/codex/opioid/workflow/10_build_data/data/dpbench/task_pool/muor_antagonism/processed_datasail",
+  "split_snapshot": {
+    "files": {
+      "../task_meta.yaml": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6",
+      "assignments.csv": "46c9483dcf880d4df45a2528defe4daf9a53e180bbc3deb5c728843a402fee6c",
+      "diagnostics.json": "66b61b4b1d0fc165bef6f5a9a1505b8b74597182a91a7b0f265ad48e69aa1135",
+      "manifest.json": "443b98148617a5e70b9293433f75f75d4908624c60fa3dab586f4147937dc8d7",
+      "test.csv": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a",
+      "train_fold-0.csv": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1",
+      "train_fold-1.csv": "3bb21fc52c2511cd03400471065b08e47ab58c3d17df4bc19ff217f66e82d72b",
+      "train_fold-2.csv": "4f574a29f20417605d9468367d7b3f21d540ad580a47a9b4a2e1260cb7b60f53",
+      "train_fold-3.csv": "aa4d7f1ed74092bc595516e0af011e312614234abb524d1d78a53ba680ca912f",
+      "train_fold-4.csv": "502853f88ec68e95cd1e4733ce4b3922a27a262570c3c5f75fc877fa34f3b273",
+      "valid_fold-0.csv": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843",
+      "valid_fold-1.csv": "241cbc3fe673416b9331af17aaa9ddb156457f8d54668e9dfd5ce39318960e01",
+      "valid_fold-2.csv": "b59a24e376a07f45f6a28748d462ad07b1f2d427cb64afab1751a8b52d1b1e41",
+      "valid_fold-3.csv": "66ee3d7ce5fd5c8a961ebcb639ac8d7b147299467d295bd06aff8a17eade9069",
+      "valid_fold-4.csv": "6853b5ae5858473220d9da40f5469fd26aa1c331af1097a1fa7874759e805b3b"
+    },
+    "split_dir": "/home/silong/codex/opioid/workflow/10_build_data/data/dpbench/task_pool/muor_antagonism/processed_datasail"
+  },
+  "suites": [
+    "traditional",
+    "chemprop"
+  ],
+  "test_policy": "after all requested candidate CV jobs completed, evaluate every frozen candidate with five fold models on the shared test; do not use test metrics for selection, tuning, or threshold changes",
+  "test_snapshot_included": true,
+  "threshold": 0.5
+}

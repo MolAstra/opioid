@@ -1,5 +1,6 @@
-"""Web-serving helpers for the RF predictor."""
+"""LitServe/FastAPI consensus prediction and explanation helpers."""
 
-from opioid.web.rf_web import RFWebPredictor
+from opioid.web.consensus_runtime import ConsensusRuntime, WebArtifactPaths
+from opioid.web.litserve_app import MuORConsensusAPI, create_server
 
-__all__ = ["RFWebPredictor"]
+__all__ = ["ConsensusRuntime", "MuORConsensusAPI", "WebArtifactPaths", "create_server"]

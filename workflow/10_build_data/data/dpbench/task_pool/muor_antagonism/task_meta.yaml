@@ -1,0 +1,21 @@
+schema_version: 2
+task_id: muor_antagonism
+smiles_column: smiles
+id_column: source_row_id
+labels:
+  - id: label
+    label_column: label
+    problem_type: binary
+    value_type: int64
+    num_classes: 2
+    class_values: [0, 1]
+    positive_class: 1
+    unit: null
+seed: 2026
+split_method: random
+split_config:
+  fractions:
+    train: 0.8
+    valid: 0.1
+    test: 0.1
+extra_columns: []

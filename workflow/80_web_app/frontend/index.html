@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>μORScreen</title>
+    <link rel="stylesheet" href="/static/app.css?v=20260725a" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">μ-opioid receptor virtual screening</p>
+        <h1>μORScreen</h1>
+        <p class="lead">Three-model antagonism prioritization with a dedicated RF TreeSHAP view.</p>
+        <div class="model-line" aria-label="Current screening ensemble">
+          <span>Random Forest</span><i></i><span>TabPFN</span><i></i><span>LightGBM</span>
+        </div>
+      </div>
+      <div class="status" id="service-status"><span></span>Checking service</div>
+    </header>
+
+    <main>
+      <section class="notice" aria-label="Scientific interpretation boundary">
+        <div>
+          <strong>Label contract</strong>
+          <span>1 = antagonistic · 0 = non-antagonistic</span>
+        </div>
+        <div>
+          <strong>Selection</strong>
+          <span>DataSAIL validation fixes representations; shared test fixes model families</span>
+        </div>
+        <div>
+          <strong>Interpretation</strong>
+          <span>Uncalibrated, test-informed screening priorities—not independent validation</span>
+        </div>
+      </section>
+
+      <nav class="mode-tabs" aria-label="Prediction mode">
+        <button class="mode-tab active" type="button" data-panel="single-panel" aria-selected="true">
+          Single molecule
+        </button>
+        <button class="mode-tab" type="button" data-panel="batch-panel" aria-selected="false">
+          CSV batch
+        </button>
+      </nav>
+
+      <section class="panel mode-panel" id="single-panel">
+        <div class="input-card">
+          <div class="input-heading">
+            <label for="smiles-input">SMILES</label>
+            <span>Example · naloxone, a classic opioid antagonist</span>
+          </div>
+          <textarea id="smiles-input" rows="3" spellcheck="false" placeholder="Enter one molecular SMILES">C=CCN1CC[C@]23c4c5ccc(O)c4O[C@H]2C(=O)CC[C@@]3(O)[C@H]1C5</textarea>
+          <div class="actions">
+            <button class="primary" id="predict-button">Run consensus + RF explanation</button>
+            <span id="single-message" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div id="single-results" class="results hidden">
+          <div class="summary-row">
+            <article class="consensus-card">
+              <p>Three-model consensus</p>
+              <strong id="consensus-label">—</strong>
+              <small id="consensus-detail"></small>
+            </article>
+            <article class="canonical-card">
+              <p>Canonical SMILES</p>
+              <code id="canonical-smiles"></code>
+            </article>
+          </div>
+
+          <div class="score-grid" id="score-grid"></div>
+
+          <section class="explanation">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Explainable branch · Random Forest only</p>
+                <h2>Local TreeSHAP explanation</h2>
+              </div>
+              <p id="additivity"></p>
+            </div>
+            <div class="shap-metrics" id="shap-metrics"></div>
+            <div class="explain-grid">
+              <figure class="structure-card">
+                <img id="structure-image" alt="RF contribution-highlighted molecule" />
+                <figcaption>
+                  <span><span class="green-dot"></span>toward antagonistic</span>
+                  <span><span class="red-dot"></span>away from antagonistic</span>
+                  <span><span class="orange-dot"></span>overlapping environments</span>
+                </figcaption>
+              </figure>
+              <div class="contribution-columns">
+                <section class="contribution-group positive-group">
+                  <h3><span>Positive contributions</span><small id="positive-summary"></small></h3>
+                  <div id="positive-contributions"></div>
+                </section>
+                <section class="contribution-group negative-group">
+                  <h3><span>Negative contributions</span><small id="negative-summary"></small></h3>
+                  <div id="negative-contributions"></div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel mode-panel hidden" id="batch-panel">
+        <div class="input-card batch-input-card">
+          <div class="input-heading">
+            <label for="csv-input">Batch prediction</label>
+            <span>CSV · required column <code>smiles</code> · up to 1,000 molecules</span>
+          </div>
+          <div class="upload-row">
+            <input id="csv-input" type="file" accept=".csv,text/csv" />
+            <a
+              class="template-link"
+              href="data:text/csv;charset=utf-8,compound_id%2Csmiles%0Aexample_1%2CCCO%0Aexample_2%2CC1%3DCC%3DCC%3DC1"
+              download="muorscreen_batch_template.csv"
+            >Download template</a>
+          </div>
+          <p class="batch-note">
+            Original columns are retained. Batch mode omits TreeSHAP and appends all three
+            uncalibrated scores, labels, vote count, and the fixed all-three consensus.
+          </p>
+          <div class="actions">
+            <button class="primary" id="batch-predict-button" type="button" disabled>
+              Run batch prediction
+            </button>
+            <span id="batch-message" role="status" aria-live="polite">Select a CSV file</span>
+          </div>
+          <div class="progress-track hidden" id="batch-progress" aria-hidden="true">
+            <span></span>
+          </div>
+        </div>
+
+        <div id="batch-results" class="results batch-results hidden">
+          <div class="batch-results-heading">
+            <div>
+              <p class="eyebrow">Batch result</p>
+              <h2>Prediction preview</h2>
+            </div>
+            <a class="download hidden" id="batch-download" download="muorscreen_predictions.csv">
+              Download CSV
+            </a>
+          </div>
+          <div class="batch-summary" id="batch-summary"></div>
+          <div class="table-wrap">
+            <table>
+              <thead id="batch-table-head"></thead>
+              <tbody id="batch-table-body"></tbody>
+            </table>
+          </div>
+          <p class="preview-note" id="batch-preview-note"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Local research service</span>
+      <a href="/docs" target="_blank" rel="noreferrer">API documentation</a>
+      <a href="/info" target="_blank" rel="noreferrer">Model info</a>
+    </footer>
+    <script src="/static/app.js?v=20260725a"></script>
+  </body>
+</html>

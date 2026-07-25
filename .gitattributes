@@ -1,0 +1,4 @@
+# Generated evidence is published byte-for-byte because its manifests and
+# checksums are part of the reproducibility contract.
+workflow/*/results/** -whitespace
+workflow/60_virtual_screen/data/sources/*.csv -whitespace

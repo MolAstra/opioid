@@ -1,0 +1,9 @@
+{
+  "datasail_git_branch": "dpnet",
+  "datasail_git_commit": "ac5115a63af8e1ed7794803b32ca429068c2a711",
+  "datasail_source": "/zhaisilong/molm/vendors/DataSAIL",
+  "dpnet_version": "dpnet, version 0.13.0",
+  "raw_csv_sha256": "5e2d53c299cf9d085f2f2f4cac42bb751eb1e0396926a0b978c10c5e1465666c",
+  "task_id": "muor_antagonism",
+  "task_meta_sha256": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6"
+}

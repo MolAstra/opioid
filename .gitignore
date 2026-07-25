@@ -18,6 +18,15 @@ dist/
 *.egg-info/
 
 outputs/
+review/
+
+# Publish scientific workflow evidence, but keep regenerable model/runtime state local.
+workflow/*/results/**/*.ckpt
+workflow/*/results/**/*.pt
+workflow/*/results/**/*.joblib
+workflow/30_benchmark_models/results/_logs/
+workflow/30_benchmark_models/results/**/artifacts/
+workflow/30_benchmark_models/results/**/status.json
 
 gradio_cached_examples/
 .gradio/
@@ -26,4 +35,5 @@ gradio_cached_examples/
 *.tmp
 *.swp
 
-vendors
+vendors/
+tmp/

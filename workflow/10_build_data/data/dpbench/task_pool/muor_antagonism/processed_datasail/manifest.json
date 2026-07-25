@@ -1,0 +1,356 @@
+{
+  "assignments": {
+    "path": "processed_datasail/assignments.csv",
+    "sha256": "46c9483dcf880d4df45a2528defe4daf9a53e180bbc3deb5c728843a402fee6c"
+  },
+  "columns": [
+    {
+      "logical_type": "string",
+      "name": "sample_id",
+      "nullable": false
+    },
+    {
+      "logical_type": "string",
+      "name": "smiles",
+      "nullable": false
+    },
+    {
+      "logical_type": "string",
+      "name": "scaffold",
+      "nullable": false
+    },
+    {
+      "logical_type": "int64",
+      "name": "label",
+      "nullable": true
+    }
+  ],
+  "deduplication": {
+    "columns": [
+      "smiles"
+    ],
+    "duplicate_rows": 1,
+    "invalid_smiles_rows": 0,
+    "processed_rows": 982
+  },
+  "diagnostics": {
+    "path": "processed_datasail/diagnostics.json",
+    "sha256": "66b61b4b1d0fc165bef6f5a9a1505b8b74597182a91a7b0f265ad48e69aa1135"
+  },
+  "folds": [
+    {
+      "fold_id": 0,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 552,
+            "1": 163
+          }
+        },
+        "observations": 715,
+        "path": "processed_datasail/train_fold-0.csv",
+        "rows": 715,
+        "sha256": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 130,
+            "1": 43
+          }
+        },
+        "observations": 173,
+        "path": "processed_datasail/valid_fold-0.csv",
+        "rows": 173,
+        "sha256": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843"
+      }
+    },
+    {
+      "fold_id": 1,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 552,
+            "1": 167
+          }
+        },
+        "observations": 719,
+        "path": "processed_datasail/train_fold-1.csv",
+        "rows": 719,
+        "sha256": "3bb21fc52c2511cd03400471065b08e47ab58c3d17df4bc19ff217f66e82d72b"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 130,
+            "1": 39
+          }
+        },
+        "observations": 169,
+        "path": "processed_datasail/valid_fold-1.csv",
+        "rows": 169,
+        "sha256": "241cbc3fe673416b9331af17aaa9ddb156457f8d54668e9dfd5ce39318960e01"
+      }
+    },
+    {
+      "fold_id": 2,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 546,
+            "1": 166
+          }
+        },
+        "observations": 712,
+        "path": "processed_datasail/train_fold-2.csv",
+        "rows": 712,
+        "sha256": "4f574a29f20417605d9468367d7b3f21d540ad580a47a9b4a2e1260cb7b60f53"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 136,
+            "1": 40
+          }
+        },
+        "observations": 176,
+        "path": "processed_datasail/valid_fold-2.csv",
+        "rows": 176,
+        "sha256": "b59a24e376a07f45f6a28748d462ad07b1f2d427cb64afab1751a8b52d1b1e41"
+      }
+    },
+    {
+      "fold_id": 3,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 528,
+            "1": 165
+          }
+        },
+        "observations": 693,
+        "path": "processed_datasail/train_fold-3.csv",
+        "rows": 693,
+        "sha256": "aa4d7f1ed74092bc595516e0af011e312614234abb524d1d78a53ba680ca912f"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 154,
+            "1": 41
+          }
+        },
+        "observations": 195,
+        "path": "processed_datasail/valid_fold-3.csv",
+        "rows": 195,
+        "sha256": "66ee3d7ce5fd5c8a961ebcb639ac8d7b147299467d295bd06aff8a17eade9069"
+      }
+    },
+    {
+      "fold_id": 4,
+      "train": {
+        "class_counts": {
+          "label": {
+            "0": 550,
+            "1": 163
+          }
+        },
+        "observations": 713,
+        "path": "processed_datasail/train_fold-4.csv",
+        "rows": 713,
+        "sha256": "502853f88ec68e95cd1e4733ce4b3922a27a262570c3c5f75fc877fa34f3b273"
+      },
+      "valid": {
+        "class_counts": {
+          "label": {
+            "0": 132,
+            "1": 43
+          }
+        },
+        "observations": 175,
+        "path": "processed_datasail/valid_fold-4.csv",
+        "rows": 175,
+        "sha256": "6853b5ae5858473220d9da40f5469fd26aa1c331af1097a1fa7874759e805b3b"
+      }
+    }
+  ],
+  "kind": "dpnet.local_partition",
+  "processed_dir": "processed_datasail",
+  "processor": {
+    "normalization_protocol": "rdkit-cleanup-fragment-parent-uncharger-v1",
+    "package_version": "0.13.0",
+    "rdkit_version": "2025.09.3"
+  },
+  "protocol": {
+    "datasail": {
+      "adapter": "datasail.integrations.dpnet.split_molecules",
+      "adapter_api_version": 2,
+      "config": {
+        "clusters": 50,
+        "delta": 0.05,
+        "epsilon": 0.05,
+        "linkage": "average",
+        "solver": "SCIP"
+      },
+      "configuration_sha256": "e5456c2d8b2f5640f3e22c8c299bc7d3535cd11f58ebcc3faebf424e776348ac",
+      "diagnostics": {
+        "cluster_count": 50,
+        "dpnet_stratification_features": [
+          "label:label:0",
+          "label:label:1"
+        ],
+        "duplicate_smiles_count": 0,
+        "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+        "optimized_similarity_scope": "post-overflow C1e solver matrix",
+        "optimized_weighted_cross_split_similarity": 73686.64212091366,
+        "optimized_weighted_total_pair_similarity": 86762.43078789861,
+        "preassigned_sample_count": 0,
+        "sample_count": 982,
+        "solver": {
+          "optimization_cluster_count": 50,
+          "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+          "optimized_similarity_scope": "post-overflow C1e solver matrix",
+          "optimized_weighted_cross_split_similarity": 73686.64212091366,
+          "optimized_weighted_total_pair_similarity": 86762.43078789861,
+          "preassigned_sample_count": 0
+        },
+        "split_counts": {
+          "fold_0": 173,
+          "fold_1": 169,
+          "fold_2": 176,
+          "fold_3": 195,
+          "fold_4": 175,
+          "test": 94
+        },
+        "split_fractions": {
+          "fold_0": 0.17617107942973523,
+          "fold_1": 0.17209775967413443,
+          "fold_2": 0.17922606924643583,
+          "fold_3": 0.1985743380855397,
+          "fold_4": 0.17820773930753564,
+          "test": 0.09572301425661914
+        },
+        "stratification": {
+          "enabled": true,
+          "feature_counts": {
+            "fold_0": [
+              130.0,
+              43.0
+            ],
+            "fold_1": [
+              130.0,
+              39.0
+            ],
+            "fold_2": [
+              136.0,
+              40.0
+            ],
+            "fold_3": [
+              154.0,
+              41.0
+            ],
+            "fold_4": [
+              132.0,
+              43.0
+            ],
+            "test": [
+              72.0,
+              22.0
+            ]
+          }
+        },
+        "unique_smiles_count": 982
+      },
+      "fingerprint": "Morgan radius=2, n_bits=1024, Tanimoto",
+      "local_branch": "dpnet",
+      "local_commit": "ac5115a63af8e1ed7794803b32ca429068c2a711",
+      "package_version": "1.4.0",
+      "source_repository": "https://github.com/kalininalab/DataSAIL",
+      "technique": "C1e",
+      "upstream_revision": "7a10364f9f9eb1b6bbf55ef18462af51a123a8fb"
+    },
+    "fold_count": 5,
+    "layout": "cv",
+    "method": "datasail",
+    "seed": 2026,
+    "stratification": {
+      "features": [
+        {
+          "categories": [
+            "0"
+          ],
+          "kind": "classification",
+          "name": "label:label:0",
+          "source": "label"
+        },
+        {
+          "categories": [
+            "1"
+          ],
+          "kind": "classification",
+          "name": "label:label:1",
+          "source": "label"
+        }
+      ],
+      "split_counts": {
+        "fold_0": {
+          "label:label:0": 130,
+          "label:label:1": 43
+        },
+        "fold_1": {
+          "label:label:0": 130,
+          "label:label:1": 39
+        },
+        "fold_2": {
+          "label:label:0": 136,
+          "label:label:1": 40
+        },
+        "fold_3": {
+          "label:label:0": 154,
+          "label:label:1": 41
+        },
+        "fold_4": {
+          "label:label:0": 132,
+          "label:label:1": 43
+        },
+        "test": {
+          "label:label:0": 72,
+          "label:label:1": 22
+        }
+      },
+      "target_fractions": {
+        "fold_0": 0.18,
+        "fold_1": 0.18,
+        "fold_2": 0.18,
+        "fold_3": 0.18,
+        "fold_4": 0.18,
+        "test": 0.1
+      },
+      "warnings": []
+    },
+    "test_fraction": 0.1,
+    "valid_fraction": null
+  },
+  "raw": {
+    "path": "task_pool/muor_antagonism/raw/muor_antagonism.csv",
+    "rows": 983,
+    "sha256": "5e2d53c299cf9d085f2f2f4cac42bb751eb1e0396926a0b978c10c5e1465666c"
+  },
+  "schema_version": 1,
+  "splits": null,
+  "task_id": "muor_antagonism",
+  "task_meta_sha256": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6",
+  "test": {
+    "class_counts": {
+      "label": {
+        "0": 72,
+        "1": 22
+      }
+    },
+    "observations": 94,
+    "path": "processed_datasail/test.csv",
+    "rows": 94,
+    "sha256": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a"
+  },
+  "warnings": []
+}

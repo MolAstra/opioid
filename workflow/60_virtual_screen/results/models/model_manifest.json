@@ -1,0 +1,28 @@
+{
+  "artifact_regeneration_command": "./workflow/60_virtual_screen/run.sh all --replace --batch-size 8192",
+  "independent_evaluation": false,
+  "models": {
+    "lgbm__ecfp_1024_rdkit2d_normalized_200": {
+      "artifact_path": "lgbm__ecfp_1024_rdkit2d_normalized_200.joblib",
+      "artifact_published": false,
+      "artifact_sha256": "c730dc8340a0e005623ce520b6abd2b954d9f159f4d6630e737e2a122d6d8420",
+      "role": "workflow_60_full_data_refit"
+    },
+    "rf__ecfp_2048": {
+      "artifact_path": "workflow/50_explain_rf/results/model/rf__ecfp_2048.joblib",
+      "artifact_published": false,
+      "artifact_sha256": "93af0609f591bd9dacbfa341ad05cf86aa9a185a16291c3a9c81dc2c9629cf78",
+      "role": "reused_upstream_artifact"
+    },
+    "tabpfn__ecfp_2048": {
+      "artifact_path": "tabpfn__ecfp_2048.joblib",
+      "artifact_published": false,
+      "artifact_sha256": "bfec0f1f495fe4f2360b55b738e321cd7a702b2f47ae296a71af1b4561f058af",
+      "role": "workflow_60_full_data_refit"
+    }
+  },
+  "schema_version": 3,
+  "selection_scope": "test_informed_screening_ensemble",
+  "training_rows": 982,
+  "training_scope": "full_deduplicated_labeled_corpus"
+}

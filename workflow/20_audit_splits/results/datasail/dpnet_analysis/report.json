@@ -1,0 +1,1423 @@
+{
+  "data_quality": {
+    "deduplication_columns": [
+      "smiles"
+    ],
+    "duplicate_rows": 1,
+    "invalid_smiles_rows": 0,
+    "normalization_protocol": "rdkit-cleanup-fragment-parent-uncharger-v1",
+    "processed_rows": 982,
+    "raw_rows": 983,
+    "rdkit_version": "2025.09.3"
+  },
+  "datasail": {
+    "available": true,
+    "diagnostics": {
+      "adapter": "datasail.integrations.dpnet.split_molecules",
+      "adapter_api_version": 2,
+      "config": {
+        "clusters": 50,
+        "delta": 0.05,
+        "epsilon": 0.05,
+        "linkage": "average",
+        "solver": "SCIP"
+      },
+      "configuration_sha256": "e5456c2d8b2f5640f3e22c8c299bc7d3535cd11f58ebcc3faebf424e776348ac",
+      "diagnostics": {
+        "cluster_count": 50,
+        "dpnet_stratification_features": [
+          "label:label:0",
+          "label:label:1"
+        ],
+        "duplicate_smiles_count": 0,
+        "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+        "optimized_similarity_scope": "post-overflow C1e solver matrix",
+        "optimized_weighted_cross_split_similarity": 73686.64212091366,
+        "optimized_weighted_total_pair_similarity": 86762.43078789861,
+        "preassigned_sample_count": 0,
+        "sample_count": 982,
+        "solver": {
+          "optimization_cluster_count": 50,
+          "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+          "optimized_similarity_scope": "post-overflow C1e solver matrix",
+          "optimized_weighted_cross_split_similarity": 73686.64212091366,
+          "optimized_weighted_total_pair_similarity": 86762.43078789861,
+          "preassigned_sample_count": 0
+        },
+        "split_counts": {
+          "fold_0": 173,
+          "fold_1": 169,
+          "fold_2": 176,
+          "fold_3": 195,
+          "fold_4": 175,
+          "test": 94
+        },
+        "split_fractions": {
+          "fold_0": 0.17617107942973523,
+          "fold_1": 0.17209775967413443,
+          "fold_2": 0.17922606924643583,
+          "fold_3": 0.1985743380855397,
+          "fold_4": 0.17820773930753564,
+          "test": 0.09572301425661914
+        },
+        "stratification": {
+          "enabled": true,
+          "feature_counts": {
+            "fold_0": [
+              130.0,
+              43.0
+            ],
+            "fold_1": [
+              130.0,
+              39.0
+            ],
+            "fold_2": [
+              136.0,
+              40.0
+            ],
+            "fold_3": [
+              154.0,
+              41.0
+            ],
+            "fold_4": [
+              132.0,
+              43.0
+            ],
+            "test": [
+              72.0,
+              22.0
+            ]
+          }
+        },
+        "unique_smiles_count": 982
+      },
+      "fingerprint": "Morgan radius=2, n_bits=1024, Tanimoto",
+      "local_branch": "dpnet",
+      "local_commit": "ac5115a63af8e1ed7794803b32ca429068c2a711",
+      "package_version": "1.4.0",
+      "source_repository": "https://github.com/kalininalab/DataSAIL",
+      "technique": "C1e",
+      "upstream_revision": "7a10364f9f9eb1b6bbf55ef18462af51a123a8fb"
+    },
+    "note": "Adapter optimized_* values describe the post-overflow C1e cluster matrix, not the molecular all-pair values above."
+  },
+  "generated_at": "2026-07-22T02:39:20.402692+00:00",
+  "kind": "dpnet.split_analysis",
+  "labels": {
+    "label": {
+      "classes": [
+        "0",
+        "1"
+      ],
+      "kind": "categorical",
+      "problem_type": "binary",
+      "splits": {
+        "development": {
+          "counts": [
+            682,
+            206
+          ],
+          "missing": 0,
+          "n": 888
+        },
+        "test": {
+          "counts": [
+            72,
+            22
+          ],
+          "missing": 0,
+          "n": 94
+        }
+      }
+    }
+  },
+  "molecular_weight": {
+    "histogram": {
+      "edges": [
+        219.284,
+        381.5717999999995,
+        543.859599999999,
+        706.1473999999985,
+        868.435199999998,
+        1030.7229999999975,
+        1193.0107999999968,
+        1355.2985999999964,
+        1517.586399999996,
+        1679.8741999999957,
+        1842.1619999999948,
+        2004.4497999999944,
+        2166.737599999994,
+        2329.0253999999936,
+        2491.313199999993,
+        2653.6009999999924,
+        2815.888799999992,
+        2978.1765999999916,
+        3140.464399999991,
+        3302.7521999999904,
+        3465.03999999999
+      ],
+      "groups": {
+        "development": {
+          "counts": [
+            259,
+            458,
+            82,
+            33,
+            9,
+            15,
+            14,
+            12,
+            2,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "n": 888
+        },
+        "test": {
+          "counts": [
+            14,
+            29,
+            19,
+            2,
+            17,
+            9,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "n": 94
+        }
+      },
+      "unit": "g/mol"
+    },
+    "summary": [
+      {
+        "group": "development",
+        "max": 3465.03999999999,
+        "mean": 499.2646655405407,
+        "median": 445.59050000000025,
+        "min": 219.284,
+        "missing": 0,
+        "n": 888,
+        "q25": 370.46325000000013,
+        "q75": 511.9350000000003,
+        "rows": 888,
+        "std": 249.8726404651058
+      },
+      {
+        "group": "test",
+        "max": 1342.5500000000002,
+        "mean": 654.1071382978724,
+        "median": 553.6175000000003,
+        "min": 295.42600000000004,
+        "missing": 0,
+        "n": 94,
+        "q25": 418.2910000000002,
+        "q75": 903.5324999999998,
+        "rows": 94,
+        "std": 279.6890802091234
+      }
+    ]
+  },
+  "pairwise_similarity": [
+    {
+      "left_group": "development",
+      "left_nearest_mean": 0.3063634083899594,
+      "max": 0.7294117647058823,
+      "mean": 0.1589245867283104,
+      "min": 0.02247191011235955,
+      "pair_count": 83472,
+      "right_group": "test",
+      "right_nearest_mean": 0.4862839694397096,
+      "std": 0.07017461194831821
+    }
+  ],
+  "processor": {
+    "package_version": "0.15.0",
+    "rdkit_version": "2025.09.3"
+  },
+  "scaffolds": {
+    "overlap": [
+      {
+        "left_group": "development",
+        "right_group": "test",
+        "shared_nonempty_scaffolds": 1
+      }
+    ],
+    "unique_nonempty_scaffolds": {
+      "development": 463,
+      "test": 40
+    }
+  },
+  "schema_version": 2,
+  "similarity": {
+    "available": true,
+    "datasail_compatible_leakage": {
+      "definition": "DataSAIL eval_split-compatible: directed all-pair similarity including diagonal in max_dl; different-group pairs in total_dl.",
+      "max_dl": 188501.65069208,
+      "scaled_dl": 0.14074946351589582,
+      "total_dl": 26531.50620677105
+    },
+    "pairs": [
+      {
+        "histogram": {
+          "counts": [
+            0,
+            0,
+            39,
+            43,
+            171,
+            342,
+            729,
+            1569,
+            3634,
+            5071,
+            6149,
+            6757,
+            7417,
+            7243,
+            6939,
+            6398,
+            5518,
+            4387,
+            3119,
+            2220,
+            2299,
+            2019,
+            1706,
+            1258,
+            1065,
+            1045,
+            763,
+            665,
+            513,
+            405,
+            394,
+            359,
+            374,
+            340,
+            336,
+            215,
+            194,
+            161,
+            142,
+            122,
+            146,
+            143,
+            126,
+            102,
+            93,
+            91,
+            85,
+            82,
+            97,
+            80,
+            92,
+            44,
+            26,
+            38,
+            29,
+            12,
+            19,
+            10,
+            7,
+            3,
+            5,
+            8,
+            1,
+            3,
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.13,
+            0.14,
+            0.15,
+            0.16,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.22,
+            0.23,
+            0.24,
+            0.25,
+            0.26,
+            0.27,
+            0.28,
+            0.29,
+            0.3,
+            0.31,
+            0.32,
+            0.33,
+            0.34,
+            0.35000000000000003,
+            0.36,
+            0.37,
+            0.38,
+            0.39,
+            0.4,
+            0.41000000000000003,
+            0.42,
+            0.43,
+            0.44,
+            0.45,
+            0.46,
+            0.47000000000000003,
+            0.48,
+            0.49,
+            0.5,
+            0.51,
+            0.52,
+            0.53,
+            0.54,
+            0.55,
+            0.56,
+            0.5700000000000001,
+            0.58,
+            0.59,
+            0.6,
+            0.61,
+            0.62,
+            0.63,
+            0.64,
+            0.65,
+            0.66,
+            0.67,
+            0.68,
+            0.6900000000000001,
+            0.7000000000000001,
+            0.71,
+            0.72,
+            0.73,
+            0.74,
+            0.75,
+            0.76,
+            0.77,
+            0.78,
+            0.79,
+            0.8,
+            0.81,
+            0.8200000000000001,
+            0.8300000000000001,
+            0.84,
+            0.85,
+            0.86,
+            0.87,
+            0.88,
+            0.89,
+            0.9,
+            0.91,
+            0.92,
+            0.93,
+            0.9400000000000001,
+            0.9500000000000001,
+            0.96,
+            0.97,
+            0.98,
+            0.99,
+            1.0
+          ]
+        },
+        "left_group": "development",
+        "left_nearest": {
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            5,
+            24,
+            23,
+            34,
+            13,
+            29,
+            26,
+            35,
+            44,
+            43,
+            46,
+            43,
+            37,
+            38,
+            38,
+            36,
+            31,
+            19,
+            22,
+            20,
+            28,
+            25,
+            12,
+            14,
+            19,
+            10,
+            14,
+            14,
+            13,
+            4,
+            14,
+            5,
+            6,
+            7,
+            10,
+            4,
+            10,
+            10,
+            9,
+            17,
+            7,
+            3,
+            5,
+            4,
+            2,
+            2,
+            4,
+            2,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.13,
+            0.14,
+            0.15,
+            0.16,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.22,
+            0.23,
+            0.24,
+            0.25,
+            0.26,
+            0.27,
+            0.28,
+            0.29,
+            0.3,
+            0.31,
+            0.32,
+            0.33,
+            0.34,
+            0.35000000000000003,
+            0.36,
+            0.37,
+            0.38,
+            0.39,
+            0.4,
+            0.41000000000000003,
+            0.42,
+            0.43,
+            0.44,
+            0.45,
+            0.46,
+            0.47000000000000003,
+            0.48,
+            0.49,
+            0.5,
+            0.51,
+            0.52,
+            0.53,
+            0.54,
+            0.55,
+            0.56,
+            0.5700000000000001,
+            0.58,
+            0.59,
+            0.6,
+            0.61,
+            0.62,
+            0.63,
+            0.64,
+            0.65,
+            0.66,
+            0.67,
+            0.68,
+            0.6900000000000001,
+            0.7000000000000001,
+            0.71,
+            0.72,
+            0.73,
+            0.74,
+            0.75,
+            0.76,
+            0.77,
+            0.78,
+            0.79,
+            0.8,
+            0.81,
+            0.8200000000000001,
+            0.8300000000000001,
+            0.84,
+            0.85,
+            0.86,
+            0.87,
+            0.88,
+            0.89,
+            0.9,
+            0.91,
+            0.92,
+            0.93,
+            0.9400000000000001,
+            0.9500000000000001,
+            0.96,
+            0.97,
+            0.98,
+            0.99,
+            1.0
+          ],
+          "summary": {
+            "max": 0.7294117647058823,
+            "mean": 0.3063634083899594,
+            "median": 0.28,
+            "min": 0.125,
+            "missing": 0,
+            "n": 888,
+            "q25": 0.227816769018674,
+            "q75": 0.36174367800873825,
+            "std": 0.11065256756536447
+          }
+        },
+        "max": 0.7294117647058823,
+        "mean": 0.1589245867283104,
+        "min": 0.02247191011235955,
+        "pair_count": 83472,
+        "right_group": "test",
+        "right_nearest": {
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            3,
+            0,
+            2,
+            3,
+            4,
+            2,
+            3,
+            2,
+            3,
+            4,
+            4,
+            6,
+            5,
+            3,
+            3,
+            4,
+            1,
+            0,
+            4,
+            1,
+            2,
+            0,
+            2,
+            1,
+            0,
+            5,
+            2,
+            5,
+            1,
+            3,
+            3,
+            0,
+            3,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.07,
+            0.08,
+            0.09,
+            0.1,
+            0.11,
+            0.12,
+            0.13,
+            0.14,
+            0.15,
+            0.16,
+            0.17,
+            0.18,
+            0.19,
+            0.2,
+            0.21,
+            0.22,
+            0.23,
+            0.24,
+            0.25,
+            0.26,
+            0.27,
+            0.28,
+            0.29,
+            0.3,
+            0.31,
+            0.32,
+            0.33,
+            0.34,
+            0.35000000000000003,
+            0.36,
+            0.37,
+            0.38,
+            0.39,
+            0.4,
+            0.41000000000000003,
+            0.42,
+            0.43,
+            0.44,
+            0.45,
+            0.46,
+            0.47000000000000003,
+            0.48,
+            0.49,
+            0.5,
+            0.51,
+            0.52,
+            0.53,
+            0.54,
+            0.55,
+            0.56,
+            0.5700000000000001,
+            0.58,
+            0.59,
+            0.6,
+            0.61,
+            0.62,
+            0.63,
+            0.64,
+            0.65,
+            0.66,
+            0.67,
+            0.68,
+            0.6900000000000001,
+            0.7000000000000001,
+            0.71,
+            0.72,
+            0.73,
+            0.74,
+            0.75,
+            0.76,
+            0.77,
+            0.78,
+            0.79,
+            0.8,
+            0.81,
+            0.8200000000000001,
+            0.8300000000000001,
+            0.84,
+            0.85,
+            0.86,
+            0.87,
+            0.88,
+            0.89,
+            0.9,
+            0.91,
+            0.92,
+            0.93,
+            0.9400000000000001,
+            0.9500000000000001,
+            0.96,
+            0.97,
+            0.98,
+            0.99,
+            1.0
+          ],
+          "summary": {
+            "max": 0.7294117647058823,
+            "mean": 0.4862839694397096,
+            "median": 0.4575617283950617,
+            "min": 0.3064516129032258,
+            "missing": 0,
+            "n": 94,
+            "q25": 0.4046545268890402,
+            "q75": 0.5798598471059337,
+            "std": 0.11286792249055784
+          }
+        },
+        "std": 0.07017461194831821,
+        "sum": 13265.753103385525,
+        "sum_sq": 2519.31020379791
+      }
+    ],
+    "protocol": {
+      "fingerprint": "Morgan / ECFP4",
+      "id": "datasail-compatible-ecfp4-tanimoto-1024-v1",
+      "include_chirality": false,
+      "n_bits": 1024,
+      "pair_mode": "exact full pairwise streaming",
+      "radius": 2,
+      "similarity": "Tanimoto",
+      "similarity_histogram_bins": 100
+    }
+  },
+  "source": {
+    "files": [
+      {
+        "path": "task_pool/muor_antagonism/task_meta.yaml",
+        "sha256": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/manifest.json",
+        "sha256": "443b98148617a5e70b9293433f75f75d4908624c60fa3dab586f4147937dc8d7"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/assignments.csv",
+        "sha256": "46c9483dcf880d4df45a2528defe4daf9a53e180bbc3deb5c728843a402fee6c"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/diagnostics.json",
+        "sha256": "66b61b4b1d0fc165bef6f5a9a1505b8b74597182a91a7b0f265ad48e69aa1135"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/train_fold-0.csv",
+        "sha256": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/valid_fold-0.csv",
+        "sha256": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/train_fold-1.csv",
+        "sha256": "3bb21fc52c2511cd03400471065b08e47ab58c3d17df4bc19ff217f66e82d72b"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/valid_fold-1.csv",
+        "sha256": "241cbc3fe673416b9331af17aaa9ddb156457f8d54668e9dfd5ce39318960e01"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/train_fold-2.csv",
+        "sha256": "4f574a29f20417605d9468367d7b3f21d540ad580a47a9b4a2e1260cb7b60f53"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/valid_fold-2.csv",
+        "sha256": "b59a24e376a07f45f6a28748d462ad07b1f2d427cb64afab1751a8b52d1b1e41"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/train_fold-3.csv",
+        "sha256": "aa4d7f1ed74092bc595516e0af011e312614234abb524d1d78a53ba680ca912f"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/valid_fold-3.csv",
+        "sha256": "66ee3d7ce5fd5c8a961ebcb639ac8d7b147299467d295bd06aff8a17eade9069"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/train_fold-4.csv",
+        "sha256": "502853f88ec68e95cd1e4733ce4b3922a27a262570c3c5f75fc877fa34f3b273"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/valid_fold-4.csv",
+        "sha256": "6853b5ae5858473220d9da40f5469fd26aa1c331af1097a1fa7874759e805b3b"
+      },
+      {
+        "path": "task_pool/muor_antagonism/processed_datasail/test.csv",
+        "sha256": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a"
+      }
+    ],
+    "layout": "cv",
+    "manifest": {
+      "assignments": {
+        "path": "processed_datasail/assignments.csv",
+        "sha256": "46c9483dcf880d4df45a2528defe4daf9a53e180bbc3deb5c728843a402fee6c"
+      },
+      "columns": [
+        {
+          "logical_type": "string",
+          "name": "sample_id",
+          "nullable": false
+        },
+        {
+          "logical_type": "string",
+          "name": "smiles",
+          "nullable": false
+        },
+        {
+          "logical_type": "string",
+          "name": "scaffold",
+          "nullable": false
+        },
+        {
+          "logical_type": "int64",
+          "name": "label",
+          "nullable": true
+        }
+      ],
+      "deduplication": {
+        "columns": [
+          "smiles"
+        ],
+        "duplicate_rows": 1,
+        "invalid_smiles_rows": 0,
+        "processed_rows": 982
+      },
+      "diagnostics": {
+        "path": "processed_datasail/diagnostics.json",
+        "sha256": "66b61b4b1d0fc165bef6f5a9a1505b8b74597182a91a7b0f265ad48e69aa1135"
+      },
+      "folds": [
+        {
+          "fold_id": 0,
+          "train": {
+            "class_counts": {
+              "label": {
+                "0": 552,
+                "1": 163
+              }
+            },
+            "observations": 715,
+            "path": "processed_datasail/train_fold-0.csv",
+            "rows": 715,
+            "sha256": "bcd1a085722e2f93580873db4e57784dc9c3894d21f886042a15a81889aac1f1"
+          },
+          "valid": {
+            "class_counts": {
+              "label": {
+                "0": 130,
+                "1": 43
+              }
+            },
+            "observations": 173,
+            "path": "processed_datasail/valid_fold-0.csv",
+            "rows": 173,
+            "sha256": "641e156814b740bb89558a0a93ac0c508c528d7eb73fe8d8ecb14aed70682843"
+          }
+        },
+        {
+          "fold_id": 1,
+          "train": {
+            "class_counts": {
+              "label": {
+                "0": 552,
+                "1": 167
+              }
+            },
+            "observations": 719,
+            "path": "processed_datasail/train_fold-1.csv",
+            "rows": 719,
+            "sha256": "3bb21fc52c2511cd03400471065b08e47ab58c3d17df4bc19ff217f66e82d72b"
+          },
+          "valid": {
+            "class_counts": {
+              "label": {
+                "0": 130,
+                "1": 39
+              }
+            },
+            "observations": 169,
+            "path": "processed_datasail/valid_fold-1.csv",
+            "rows": 169,
+            "sha256": "241cbc3fe673416b9331af17aaa9ddb156457f8d54668e9dfd5ce39318960e01"
+          }
+        },
+        {
+          "fold_id": 2,
+          "train": {
+            "class_counts": {
+              "label": {
+                "0": 546,
+                "1": 166
+              }
+            },
+            "observations": 712,
+            "path": "processed_datasail/train_fold-2.csv",
+            "rows": 712,
+            "sha256": "4f574a29f20417605d9468367d7b3f21d540ad580a47a9b4a2e1260cb7b60f53"
+          },
+          "valid": {
+            "class_counts": {
+              "label": {
+                "0": 136,
+                "1": 40
+              }
+            },
+            "observations": 176,
+            "path": "processed_datasail/valid_fold-2.csv",
+            "rows": 176,
+            "sha256": "b59a24e376a07f45f6a28748d462ad07b1f2d427cb64afab1751a8b52d1b1e41"
+          }
+        },
+        {
+          "fold_id": 3,
+          "train": {
+            "class_counts": {
+              "label": {
+                "0": 528,
+                "1": 165
+              }
+            },
+            "observations": 693,
+            "path": "processed_datasail/train_fold-3.csv",
+            "rows": 693,
+            "sha256": "aa4d7f1ed74092bc595516e0af011e312614234abb524d1d78a53ba680ca912f"
+          },
+          "valid": {
+            "class_counts": {
+              "label": {
+                "0": 154,
+                "1": 41
+              }
+            },
+            "observations": 195,
+            "path": "processed_datasail/valid_fold-3.csv",
+            "rows": 195,
+            "sha256": "66ee3d7ce5fd5c8a961ebcb639ac8d7b147299467d295bd06aff8a17eade9069"
+          }
+        },
+        {
+          "fold_id": 4,
+          "train": {
+            "class_counts": {
+              "label": {
+                "0": 550,
+                "1": 163
+              }
+            },
+            "observations": 713,
+            "path": "processed_datasail/train_fold-4.csv",
+            "rows": 713,
+            "sha256": "502853f88ec68e95cd1e4733ce4b3922a27a262570c3c5f75fc877fa34f3b273"
+          },
+          "valid": {
+            "class_counts": {
+              "label": {
+                "0": 132,
+                "1": 43
+              }
+            },
+            "observations": 175,
+            "path": "processed_datasail/valid_fold-4.csv",
+            "rows": 175,
+            "sha256": "6853b5ae5858473220d9da40f5469fd26aa1c331af1097a1fa7874759e805b3b"
+          }
+        }
+      ],
+      "kind": "dpnet.local_partition",
+      "processed_dir": "processed_datasail",
+      "processor": {
+        "normalization_protocol": "rdkit-cleanup-fragment-parent-uncharger-v1",
+        "package_version": "0.13.0",
+        "rdkit_version": "2025.09.3"
+      },
+      "protocol": {
+        "datasail": {
+          "adapter": "datasail.integrations.dpnet.split_molecules",
+          "adapter_api_version": 2,
+          "config": {
+            "clusters": 50,
+            "delta": 0.05,
+            "epsilon": 0.05,
+            "linkage": "average",
+            "solver": "SCIP"
+          },
+          "configuration_sha256": "e5456c2d8b2f5640f3e22c8c299bc7d3535cd11f58ebcc3faebf424e776348ac",
+          "diagnostics": {
+            "cluster_count": 50,
+            "dpnet_stratification_features": [
+              "label:label:0",
+              "label:label:1"
+            ],
+            "duplicate_smiles_count": 0,
+            "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+            "optimized_similarity_scope": "post-overflow C1e solver matrix",
+            "optimized_weighted_cross_split_similarity": 73686.64212091366,
+            "optimized_weighted_total_pair_similarity": 86762.43078789861,
+            "preassigned_sample_count": 0,
+            "sample_count": 982,
+            "solver": {
+              "optimization_cluster_count": 50,
+              "optimized_normalized_cross_split_similarity": 0.8492920432468021,
+              "optimized_similarity_scope": "post-overflow C1e solver matrix",
+              "optimized_weighted_cross_split_similarity": 73686.64212091366,
+              "optimized_weighted_total_pair_similarity": 86762.43078789861,
+              "preassigned_sample_count": 0
+            },
+            "split_counts": {
+              "fold_0": 173,
+              "fold_1": 169,
+              "fold_2": 176,
+              "fold_3": 195,
+              "fold_4": 175,
+              "test": 94
+            },
+            "split_fractions": {
+              "fold_0": 0.17617107942973523,
+              "fold_1": 0.17209775967413443,
+              "fold_2": 0.17922606924643583,
+              "fold_3": 0.1985743380855397,
+              "fold_4": 0.17820773930753564,
+              "test": 0.09572301425661914
+            },
+            "stratification": {
+              "enabled": true,
+              "feature_counts": {
+                "fold_0": [
+                  130.0,
+                  43.0
+                ],
+                "fold_1": [
+                  130.0,
+                  39.0
+                ],
+                "fold_2": [
+                  136.0,
+                  40.0
+                ],
+                "fold_3": [
+                  154.0,
+                  41.0
+                ],
+                "fold_4": [
+                  132.0,
+                  43.0
+                ],
+                "test": [
+                  72.0,
+                  22.0
+                ]
+              }
+            },
+            "unique_smiles_count": 982
+          },
+          "fingerprint": "Morgan radius=2, n_bits=1024, Tanimoto",
+          "local_branch": "dpnet",
+          "local_commit": "ac5115a63af8e1ed7794803b32ca429068c2a711",
+          "package_version": "1.4.0",
+          "source_repository": "https://github.com/kalininalab/DataSAIL",
+          "technique": "C1e",
+          "upstream_revision": "7a10364f9f9eb1b6bbf55ef18462af51a123a8fb"
+        },
+        "fold_count": 5,
+        "layout": "cv",
+        "method": "datasail",
+        "seed": 2026,
+        "stratification": {
+          "features": [
+            {
+              "categories": [
+                "0"
+              ],
+              "kind": "classification",
+              "name": "label:label:0",
+              "source": "label"
+            },
+            {
+              "categories": [
+                "1"
+              ],
+              "kind": "classification",
+              "name": "label:label:1",
+              "source": "label"
+            }
+          ],
+          "split_counts": {
+            "fold_0": {
+              "label:label:0": 130,
+              "label:label:1": 43
+            },
+            "fold_1": {
+              "label:label:0": 130,
+              "label:label:1": 39
+            },
+            "fold_2": {
+              "label:label:0": 136,
+              "label:label:1": 40
+            },
+            "fold_3": {
+              "label:label:0": 154,
+              "label:label:1": 41
+            },
+            "fold_4": {
+              "label:label:0": 132,
+              "label:label:1": 43
+            },
+            "test": {
+              "label:label:0": 72,
+              "label:label:1": 22
+            }
+          },
+          "target_fractions": {
+            "fold_0": 0.18,
+            "fold_1": 0.18,
+            "fold_2": 0.18,
+            "fold_3": 0.18,
+            "fold_4": 0.18,
+            "test": 0.1
+          },
+          "warnings": []
+        },
+        "test_fraction": 0.1,
+        "valid_fraction": null
+      },
+      "raw": {
+        "path": "task_pool/muor_antagonism/raw/muor_antagonism.csv",
+        "rows": 983,
+        "sha256": "5e2d53c299cf9d085f2f2f4cac42bb751eb1e0396926a0b978c10c5e1465666c"
+      },
+      "schema_version": 1,
+      "splits": null,
+      "task_id": "muor_antagonism",
+      "task_meta_sha256": "d8bb6ec6edcc30b55b45f5e258e4d23b3f435045123ef3943f111d9a5e681ec6",
+      "test": {
+        "class_counts": {
+          "label": {
+            "0": 72,
+            "1": 22
+          }
+        },
+        "observations": 94,
+        "path": "processed_datasail/test.csv",
+        "rows": 94,
+        "sha256": "eaff6f685aade118e9152722639cba8188d75998cc5b0bb714b9caa815e3b35a"
+      },
+      "warnings": []
+    },
+    "method": "datasail",
+    "processed_dir": "processed_datasail",
+    "root": "/home/silong/codex/opioid/workflow/10_build_data/data/dpbench",
+    "source_name": "processed_datasail",
+    "task_id": "muor_antagonism"
+  },
+  "split_contract": {
+    "groups": {
+      "development": {
+        "actual_fraction": 0.9042769857433809,
+        "observations": 888,
+        "rows": 888,
+        "target_fraction": null
+      },
+      "test": {
+        "actual_fraction": 0.09572301425661914,
+        "observations": 94,
+        "rows": 94,
+        "target_fraction": null
+      }
+    },
+    "requested_method": "datasail",
+    "resolved_method": "datasail",
+    "seed": 2026,
+    "target_fractions": {}
+  },
+  "split_summary": [
+    {
+      "group": "development",
+      "max": 3465.03999999999,
+      "mean": 499.2646655405407,
+      "median": 445.59050000000025,
+      "min": 219.284,
+      "missing": 0,
+      "n": 888,
+      "q25": 370.46325000000013,
+      "q75": 511.9350000000003,
+      "rows": 888,
+      "std": 249.8726404651058
+    },
+    {
+      "group": "test",
+      "max": 1342.5500000000002,
+      "mean": 654.1071382978724,
+      "median": 553.6175000000003,
+      "min": 295.42600000000004,
+      "missing": 0,
+      "n": 94,
+      "q25": 418.2910000000002,
+      "q75": 903.5324999999998,
+      "rows": 94,
+      "std": 279.6890802091234
+    }
+  ],
+  "task_id": "muor_antagonism"
+}

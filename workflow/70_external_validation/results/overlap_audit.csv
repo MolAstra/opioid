@@ -1,0 +1,4 @@
+id,name,label,canonical_smiles,training_sample_id,training_label
+EXT-N05,pzm21,0,C[C@@H](Cc1ccsc1)NC(=O)NC[C@H](Cc1ccc(O)cc1)N(C)C,479,0
+EXT-N08,cebranopadol,0,CN(C)C1(c2ccccc2)CCC2(CC1)OCCc1c2[nH]c2ccc(F)cc12,341,0
+EXT-N10,endomorphin-1,0,NC(=O)[C@H](Cc1ccccc1)NC(=O)[C@H](Cc1c[nH]c2ccccc12)NC(=O)[C@@H]1CCCN1C(=O)[C@@H](N)Cc1ccc(O)cc1,521,0

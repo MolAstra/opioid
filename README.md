@@ -1,308 +1,209 @@
 # μORScreen
 
-Machine-learning workflow for `μ`-opioid receptor ligand classification, SAR interpretation, virtual screening, and lightweight deployment.
+`μORScreen` is a reproducible workflow for μ-opioid receptor ligand classification and reviewer
+model comparison.
 
-The current project is organized around a reproducible sequence of top-level scripts:
-
-- scaffold-aware data splitting
-- baseline model benchmarking
-- publication-style plotting
-- RF-SHAP interpretation
-- structure-assisted SAR comparison
-- multi-database candidate screening
-- web prediction
-- small external validation on curated literature ligands
-
-Important label convention:
+The label contract is fixed throughout the project:
 
 - `label = 1`: antagonistic
 - `label = 0`: non-antagonistic
 
 ## Environment
 
-Python `3.12` is required.
-
-Typical setup:
+Python 3.12 is required. The main environment is shared by all numbered workflows.
 
 ```bash
 conda create -n opioid_tmp python=3.12
 conda activate opioid_tmp
-
-# Install a PyTorch build that matches your machine.
 pip install torch torchvision torchaudio
-
 pip install -e .
 ```
 
-Optional environment for PLIP analysis:
+DPBench/DataSAIL partitioning uses the separate `molm` environment. The default command is
+`conda run --no-capture-output -n molm dpnet`. Chemprop reviewer jobs require a visible GPU.
 
-```bash
-conda create -n plip_env python=3.12
-conda activate plip_env
-pip install plip
-```
-
-`4.3_plip_rf_sar.py` currently expects the PLIP executable to be available in `plip_env`.
-
-## Repository Layout
+## Repository layout
 
 ```text
 opioid/
-├── datasets/
-│   ├── opioid.csv
-│   └── cv/
+├── workflow/
+│   ├── 10_build_data/          # canonical input and fixed DPBench partitions
+│   ├── 20_audit_splits/        # similarity diagnostics
+│   ├── 30_benchmark_models/    # 5CV + shared-test model matrix
+│   ├── 40_report_results/      # model comparison figures and report
+│   ├── 50_explain_rf/          # full-data RF TreeSHAP/SAR bundle
+│   ├── 60_virtual_screen/      # full-data three-model virtual screen
+│   ├── 70_external_validation/ # exploratory literature-case evaluation
+│   └── 80_web_app/             # LitServe API and local research frontend
 ├── src/opioid/
-│   ├── baselines/
+│   ├── chemistry/              # molecular representation contracts
+│   ├── evaluation/             # DPBench and split diagnostics
+│   ├── benchmark/              # candidates, runners, metrics and reporting
 │   ├── explain/
 │   ├── screen/
 │   └── web/
-├── 1_build_data.py
-├── 2_run_baselines.py
-├── 3_plot_baselines.py
-├── 4_explain_rf.py
-├── 4.1_explain_data.py
-├── 4.2_compare_pdb_rfshap.py
-├── 4.3_plip_rf_sar.py
-├── 5_build_candidate_library.py
-├── 5.1_plot_candidates.py
-├── 6_webserver.py
-├── 7_novel_mols.py
-└── outputs/
+├── tests/
+└── docs/
 ```
 
-### Directory Guide
+The numbered workflow directories are the public reviewer entry points. Each contains its own
+`run.sh`, `main.py`, `README.md`, local defaults, and owned data/results. Shared scientific code
+remains single-sourced under `src/opioid/`.
 
-`datasets/`
+The numbered Workflow directories are the only public execution entry points. Pre-Workflow
+scripts and outputs are retained only in the ignored local `tmp/archive/` area.
 
-- `opioid.csv`: master dataset used to build splits.
-- `cv/`: generated scaffold-based train/valid/test files and split statistics.
+## Reviewer workflow
 
-`src/opioid/baselines/`
-
-- model training, inference, feature generation, metrics, artifact writing.
-
-`src/opioid/explain/`
-
-- RF local SAR, global SHAP, PDB alignment, and PLIP comparison workflows.
-
-`src/opioid/screen/`
-
-- candidate-library prediction, candidate plotting, and external-validation utilities.
-
-`src/opioid/web/`
-
-- RF web inference backend used by the Gradio app.
-
-`outputs/baselines/`
-
-- benchmark metrics, saved models, runtime config, per-model test predictions, and baseline figures.
-
-`outputs/explain_rf/`
-
-- local RF-SHAP SAR examples, molecule-level figures, summary tables, and report.
-
-`outputs/explain_data/`
-
-- global RF-SHAP tables, top-bit examples, and manuscript-ready global figures.
-
-`outputs/explain_pdb/`
-
-- literature-backed PDB case comparison against RF-SHAP, including ligand PNGs.
-
-`outputs/explain_plip_rf/`
-
-- PLIP interaction summaries and RF-SAR figures for selected structural cases.
-
-`outputs/candidates/`
-
-- per-database screening predictions, candidate statistics, and screening figures.
-
-`outputs/novel_mols/`
-
-- formal external validation set and prediction outputs for curated literature ligands.
-
-`outputs/tmp_novel_mols/`
-
-- automatic backup copy of `outputs/novel_mols/`.
-
-## End-to-End Workflow
-
-### 1. Build scaffold-based splits
+### 10 — Build and validate fixed data partitions
 
 ```bash
-python 1_build_data.py
+./workflow/10_build_data/run.sh --protocol all
 ```
 
-Outputs:
+Canonical state is owned by `workflow/10_build_data/data/`:
 
-- `datasets/cv/test.csv`
-- `datasets/cv/fold_*/train.csv`
-- `datasets/cv/fold_*/valid.csv`
-- `datasets/cv/split_stats.json`
+- `source/opioid.csv`: 983-row source table;
+- `dpbench/task_pool/muor_antagonism/processed_<protocol>/`: fixed local partitions;
+- `dpbench/dpbench_runtime.json`: tool and input provenance.
 
-### 2. Run baseline models
+DPBench canonicalization/deduplication retains 982 molecules. Each of `scaffold`, `random`, and
+`datasail` has one fixed test and five train/validation folds. Changed source input requires a
+coherent rebuild with `--protocol all --replace`.
+
+### 20 — Audit similarity and split isolation
 
 ```bash
-python 2_run_baselines.py
+./workflow/20_audit_splits/run.sh --protocol all
 ```
 
-Current benchmark set:
+The canonical report under `results/<protocol>/dpnet_analysis/` comes directly from DPNet
+`dpnet analyze`: self-contained HTML, JSON/CSV evidence, manifest and checksums covering data
+quality, labels, molecular weight, scaffolds, exact development/test ECFP4/Tanimoto and
+DataSAIL-compatible leakage. μORScreen separately writes the requested five train/validation fold
+distributions under `fold_diagnostics/`. Scaffold isolation is asserted from the official report;
+random and DataSAIL similarities are descriptive. An all-protocol run also writes the
+title-free cross-protocol comparison to
+`results/figures/test_to_development_max_tanimoto.png`.
 
-- `svm`
-- `rf`
-- `xgb`
-- `lgbm`
-- `tabpfn`
-- `chemprop_default`
-- `chemprop_morgan`
-- `chemprop_morgan_rdkit2d`
+### 30 — Run the complete model matrix
 
-Key outputs:
-
-- `outputs/baselines/cv5_summary_metrics.csv`
-- `outputs/baselines/test_metrics.csv`
-- `outputs/baselines/artifacts/runtime_config.json`
-
-`runtime_config.json` is the deployment contract used by downstream scripts, including candidate screening, web inference, and external validation.
-
-### 3. Plot baseline benchmark figures
+Run the formal complete matrix on physical GPUs 0–2:
 
 ```bash
-python 3_plot_baselines.py
+./workflow/30_benchmark_models/run_full.sh
 ```
 
-Current outputs are grouped bar plots for:
+The traditional matrix contains 11 algorithms/presets × 5 representations = 55 candidates:
 
-- AUROC
-- AUPRC
-- Accuracy
-- F1
+- SVM, RF, XGBoost, LightGBM, TabPFN;
+- distance-weighted KNN (`k=3`, `k=5`);
+- L1 and L2 logistic regression (`C=0.1`, `C=1`);
+- ECFP-1024, ECFP-2048, RDKit2DNormalized-200, and both ECFP+descriptor combinations.
 
-They are written to `outputs/baselines/figures/`.
+Three GPU Chemprop variants are evaluated alongside the traditional matrix. Every candidate gets
+five validation scores and five scores on the protocol-specific shared test. AUROC, AUPRC,
+Accuracy, F1 and MCC are summarized as mean, sample SD and Student-t 95% CI. The workflow never
+selects Top-1 and never creates a deployment model.
 
-### 4. RF interpretation workflows
+Results are owned by `workflow/30_benchmark_models/results/<protocol>/benchmark/`. CV-only runs do
+not read or hash `test.csv`; resume records are bound to candidate, runtime and split fingerprints.
+The public CLI cannot redirect model artifacts outside Workflow 30. The full runner validates all
+three complete result matrices before returning success.
 
-Local RF-SHAP SAR:
+### 40 — Plot and report all candidates
+
+Workflow 40 reads only Workflow 30 results. All 58 candidates use the same visual treatment and
+the same `model_name` + `model_type` identity; `candidate_id` is retained only for provenance.
 
 ```bash
-python 4_explain_rf.py
+./workflow/40_report_results/run.sh all --replace
 ```
 
-Global RF-SHAP analysis:
+The reporting workflow atomically replaces its own compact `results/` package without modifying
+step 30. The two manuscript-facing figures are `figures/roc_valid.png` and
+`figures/roc_test.png`; auxiliary PNGs cover all five metrics. The strict report requires all 58
+candidates, all three protocols, five validation folds, and five shared-test evaluations per
+candidate. It refuses incomplete/CV-only matrices and does not rank or select a model.
+
+### 50 — Explain the full-data RF screening model
 
 ```bash
-python 4.1_explain_data.py
+./workflow/50_explain_rf/run.sh all --replace
 ```
 
-PDB-to-RF-SHAP comparison:
+The user-approved explanation target is `Random Forest + ECFP4 (2048-bit)`. It has the highest
+mean validation AUROC across the three frozen protocols (`0.8630`) but is not claimed to be
+statistically superior. Workflow 50 refits it on all 982 deduplicated labels, verifies that all
+three partition layouts reconstruct the same corpus, and writes TreeSHAP, Morgan-environment and
+local SAR evidence.
+
+Because the fixed test is included in this full-data refit, the resulting artifact has no new
+independent performance metric. Workflow 30 remains the evaluation source of truth. The RF score
+is uncalibrated and is intended for explanation and relative screening priority only.
+
+### 60 — Run the consensus virtual screen
 
 ```bash
-python 4.2_compare_pdb_rfshap.py
+./workflow/60_virtual_screen/run.sh all --replace
 ```
 
-PLIP + RF-SAR comparison:
+Workflow 60 uses physical GPU 5 by default for TabPFN. It reuses Workflow 50's full-data
+RF/ECFP4-2048 artifact and refits TabPFN/ECFP4-2048 and
+LightGBM/ECFP4-1024+RDKit2D-200 on the same 982 labels. The four source snapshots are owned under
+`workflow/60_virtual_screen/data/sources/`.
+Invalid SMILES, canonical training overlap, within-source duplicates, and cross-source duplicate
+membership are recorded before the fixed all-three `score >= 0.5` consensus is applied.
+
+This ensemble is explicitly `test_informed_screening_ensemble`: DataSAIL validation AUROC first
+fixes one candidate in each of all eight model families, including Chemprop, and shared-test AUROC
+then selects LightGBM, TabPFN, and RF. Workflow 60 therefore makes no new independent test
+performance claim; its uncalibrated probabilities rank candidates for experimental follow-up.
+
+### 70 — Evaluate the exploratory literature cases
 
 ```bash
-python 4.3_plip_rf_sar.py
+./workflow/70_external_validation/run.sh all --replace
 ```
 
-Notes:
+Workflow 70 applies the unchanged Workflow 60 ensemble to a fixed 20-case literature source and
+audits exact canonical overlap against all 982 labeled molecules. It reports the complete 20-case
+table and a separate 17-case cohort after removing three disclosed non-antagonistic overlaps.
+Accuracy, balanced accuracy and confusion counts are reported for all three models and the strict
+consensus; AUROC and AUPRC are omitted. The compact HTML report includes names, DOI, overlap status
+and molecule-level predictions; SMILES remain in the prediction CSVs. This small purposively
+balanced case set is exploratory, not a representative prospective validation sample.
 
-- `4_explain_rf.py` focuses on selected success and failure molecules.
-- `4.1_explain_data.py` summarizes global RF bit importance over the full dataset.
-- `4.2_compare_pdb_rfshap.py` compares representative `μOR` ligands from PDB against RF-SHAP interpretation.
-- `4.3_plip_rf_sar.py` combines receptor interaction summaries with ligand-side RF-SHAP SAR.
-
-### 5. Candidate screening
-
-Build per-database ranked candidate libraries:
+### 80 — Serve predictions and RF explanations
 
 ```bash
-python 5_build_candidate_library.py
+./workflow/80_web_app/run_server.sh
 ```
 
-Plot screening summary figures:
+Workflow 80 starts one local LitServe/FastAPI application at `http://127.0.0.1:8000` and uses
+physical GPU 5 by default. One GPU inference worker loads the Workflow 50/60 artifacts after
+validating their hashes. LitServe merges simultaneous molecule requests into batches of up to 32.
+The browser CSV interface accepts a `smiles` column with at most 1,000 molecules, submits up to 32
+requests concurrently, and returns a downloadable table while keeping the uploaded file local.
 
-```bash
-python 5.1_plot_candidates.py
-```
+The browser page and `/api/v1/predict` return all three uncalibrated scores and the fixed consensus.
+Single-molecule requests can additionally return an additive RF TreeSHAP decomposition and a
+contribution-highlighted structure. This explanation applies only to the RF branch, not to TabPFN,
+LightGBM, or the consensus. API documentation is available at `/docs`.
 
-Current screening sources are defined in `src/opioid/screen/candidates.py` under `DB_SOURCES`.
+## Reproducibility contract
 
-Important behavior:
+- Split seed: `2026`; estimator seed: `42`; classification threshold: `0.5`.
+- DataSAIL uses C1e/Morgan ECFP4-1024 allocation; no hard 0.70 Tanimoto claim is made.
+- Source data, fixed partitions, tables, predictions, figures, reports and manifests are
+  version-controlled.
+- Regenerable `.joblib`, `.ckpt`, `.pt`, logs and resume state are ignored. A fresh clone must run
+  Workflows 50 and 60 before Workflow 70 or 80.
+- Verify the published evidence with `python workflow/verify_release.py verify`.
+- Reviewer metrics must not be used for implicit deployment or automatic Top-1 selection.
 
-- screening uses the current `top3` models from `outputs/baselines/artifacts/runtime_config.json`
-- training, validation, and test overlaps are removed before screening outputs are written
-- results are kept as ranked full-library outputs, not truncated hit lists
-
-Main outputs:
-
-- `outputs/candidates/pred_gpcrdb.csv`
-- `outputs/candidates/pred_zinc.csv`
-- `outputs/candidates/pred_reinvent.csv`
-- `outputs/candidates/pred_ouroboros.csv`
-- `outputs/candidates/candidate_stats.csv`
-- `outputs/candidates/figures/`
-
-### 6. RF webserver
-
-```bash
-python 6_webserver.py
-```
-
-Features:
-
-- single SMILES prediction
-- batch CSV prediction
-- CSV must contain `smiles` or `SMILES`
-- CSV row limit: `1000`
-- output fields:
-  - `antagonist_probability`
-  - `pred_label`
-  - `status` for batch mode
-
-This app uses the saved best model from `outputs/baselines/artifacts/runtime_config.json`.
-
-### 7. External validation on curated literature molecules
-
-```bash
-python 7_novel_mols.py
-```
-
-This workflow:
-
-- reads `outputs/novel_mols/external_mor_20_raw.csv`
-- canonicalizes SMILES
-- removes overlaps with `train/valid/test`
-- predicts with the current top-3 ensemble
-- writes formal outputs to `outputs/novel_mols/`
-- mirrors them to `outputs/tmp_novel_mols/` as backup
-
-Main outputs:
-
-- `outputs/novel_mols/external_mor_20.csv`
-- `outputs/novel_mols/external_top3_predictions.csv`
-- `outputs/novel_mols/external_top3_summary.csv`
-- `outputs/novel_mols/external_top3_analysis.md`
-
-## Current Public Interfaces
-
-Top-level scripts are the main public entrypoints. Internally:
-
-- `src/opioid/baselines/` provides training and artifact generation utilities.
-- `src/opioid/screen/candidates.py` exposes the top-model predictor and candidate-library workflow.
-- `src/opioid/web/rf_web.py` exposes `RFWebPredictor`.
-- `src/opioid/explain/` provides reusable explanation workflows behind scripts `4*`.
-
-## Reproducibility Notes
-
-- Classification threshold is currently `0.5`.
-- Morgan fingerprint settings are currently radius `2` and `2048` bits.
-- The saved runtime config is the source of truth for deployed prediction workflows.
-- Candidate screening and external validation are both designed to avoid leakage from `train/valid/test`.
-
-## Practical Notes
-
-- The candidate screening source paths are currently local absolute paths; adjust `DB_SOURCES` before running on another machine.
-- PLIP raw outputs are available even if PyMOL-based rendered PLIP figures are unavailable in the current environment.
-- The repository contains generated `outputs/` artifacts from the active analysis workflow; they are part of the working project state, not just temporary cache.
+See [workflow/README.md](workflow/README.md),
+[docs/benchmark-runbook.md](docs/benchmark-runbook.md), and
+[docs/reproducibility.md](docs/reproducibility.md) for operational details. Data sources and
+publication boundaries are documented in [docs/data-provenance.md](docs/data-provenance.md);
+the current execution record is [docs/execution-summary.md](docs/execution-summary.md).
